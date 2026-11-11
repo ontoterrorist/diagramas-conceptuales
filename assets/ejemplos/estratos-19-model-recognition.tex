@@ -1,0 +1,33 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\bfseries\itshape\px{36}},
+    raya/.style={dash pattern=on 9pt off 6pt, line width=1.5pt},
+    baja/.style={raya, -{Triangle[open,length=4.4mm,width=3.4mm,line width=1.2pt]}}]
+  \node[titulo=60] at (11.48,-0.92) {The Model of Recognition in the Image of Thought};
+
+  \node[font=\bfseries\px{36}] at (3.75,-4.08) {COMMON SENSE\\(Form of the Same)};
+  \node[font=\bfseries\px{36}] at (3.75,-8.86) {GOOD SENSE\\(Contribution of the Faculties)};
+
+  \node at (14.57,-4.17) {Pure Subject \ $\leftrightarrow$\  Undetermined Object};
+  \draw[raya] (9.4,-6.85) .. controls (9.6,-5.9) and (13.6,-5.6) .. (13.77,-5.0);
+  \draw[raya] (17.8,-6.85) .. controls (17.6,-5.9) and (13.95,-5.6) .. (13.77,-5.0);
+  \draw[raya, -{Latex[length=3.6mm,width=2.6mm]}] (13.77,-6.85) -- (13.77,-4.88);
+
+  \node at (9.4,-7.22) {Imagination};
+  \node at (13.75,-7.22) {Sensation};
+  \node at (17.82,-7.22) {Understanding};
+  \foreach \x in {9.4,13.75,17.82} \draw[baja] (\x,-7.65) -- (\x,-8.62);
+
+  \node[font=\itshape\px{28}] at (9.4,-9.05) {I imagine a tree};
+  \node[font=\itshape\px{28}] at (13.72,-9.05) {I see a tree};
+  \node[font=\itshape\px{28}] at (17.8,-9.05) {I conceive of a tree};
+  \draw[puntos, line width=1.5pt, dash pattern=on 0pt off 4.5pt]
+    (8.48,-9.55) .. controls (8.5,-10.15) and (8.9,-10.22) .. (9.6,-10.22)
+    -- (13.2,-10.22) .. controls (13.7,-10.22) and (13.8,-10.4) .. (13.8,-10.85)
+    .. controls (13.8,-10.4) and (13.9,-10.22) .. (14.4,-10.22)
+    -- (18.0,-10.22) .. controls (18.7,-10.22) and (19.1,-10.15) .. (19.12,-9.55);
+
+  \node at (14.37,-11.27) {Empirical Self \ $\leftrightarrow$\  Determined Object};
+\end{tikzpicture}
+\end{document}

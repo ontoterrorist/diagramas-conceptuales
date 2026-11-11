@@ -1,0 +1,60 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{28}}, line width=1.4pt,
+    rama/.style={-{Latex[length=4.4mm,width=3.2mm]}},
+    paso/.style={line width=0.8pt, -{Triangle[open,length=3.6mm,width=2.8mm]}}]
+  \node[titulo=46] at (9.73,-0.58) {Bergson's Metaphysics};
+  \node[font=\bfseries\px{36}] at (4.25,-2.13) {Matter};
+  \node[font=\bfseries\px{36}] at (15.73,-2.13) {Memory};
+  \draw[puntitos] (5.6,-2.15) -- (14.4,-2.15);
+  \draw[line width=0.8pt, dash pattern=on 4pt off 3pt, rama] (9.75,-2.15) -- (9.75,-4.75);
+
+  % Primer nivel
+  \draw (4.25,-2.7) -- (4.25,-3.72);
+  \draw[rama] (4.25,-3.72) -| (2.25,-4.75);
+  \draw[rama] (4.25,-3.72) -| (5.97,-4.75);
+  \draw (15.73,-2.7) -- (15.73,-3.72);
+  \draw[rama] (15.73,-3.72) -| (13.73,-4.75);
+  \draw[rama] (15.73,-3.72) -| (18.17,-4.75);
+
+  \node at (2.25,-5.17) {Need};
+  \node at (5.97,-5.17) {Brain};
+  \node at (9.75,-5.17) {Affect};
+  \node at (13.73,-5.17) {Recollection};
+  \node at (18.17,-5.17) {Contraction};
+  \draw[paso] (3.38,-5.2) -- (4.85,-5.2);
+  \draw[paso] (7.1,-5.2) -- (8.6,-5.2);
+  \draw[paso] (10.85,-5.2) -- (12.35,-5.2);
+  \draw[paso] (15.05,-5.2) -- (17.05,-5.2);
+
+  % Segundo nivel
+  \begin{scope}[line width=1.2pt, every node/.append style={font=\px{26}}]
+    \foreach \x/\l/\r/\yh/\yv in {2.25/1.3/3.05/-6.55/-5.65, 5.98/5.13/6.82/-6.57/-5.65,
+                                  13.72/12.87/14.55/-6.45/-5.45, 18.2/17.35/19.03/-6.47/-5.45} {
+      \draw (\x,\yv) -- (\x,\yh);
+      \draw[rama] (\x,\yh) -| (\l,-7.45);
+      \draw[rama] (\x,\yh) -| (\r,-7.45);
+    }
+    \draw[rama] (9.75,-5.65) -- (9.75,-7.45);
+    \node at (1.3,-7.8) {Negation};
+    \node at (3.05,-7.8) {Object};
+    \node at (5.15,-7.95) {Received\\Movement};
+    \node at (6.82,-7.95) {Executed\\Movement};
+    \node at (9.75,-7.8) {Pain};
+    \node at (12.87,-7.93) {Present};
+    \node at (14.55,-7.9) {Past\\Recollection};
+    \node at (17.35,-7.95) {Virtual\\Past};
+    \node at (19.03,-7.95) {Actual\\Present};
+  \end{scope}
+
+  % Líneas de objetividad y subjetividad
+  \draw[puntos, paso, line width=1.3pt] (0.45,-8.8) -- (7.2,-8.8);
+  \draw[line width=1.3pt, dash pattern=on 10pt off 4pt on 1.5pt off 4pt,
+        {Triangle[open,length=3.6mm,width=2.8mm]}-{Triangle[open,length=3.6mm,width=2.8mm]}] (7.95,-8.8) -- (11.65,-8.8);
+  \draw[puntos, paso, line width=1.3pt] (12.15,-8.8) -- (19.6,-8.8);
+  \node at (3.58,-9.47) {Line of Objectivity\\(Perception)};
+  \node[font=\itshape\px{28}] at (9.73,-9.47) {Interface};
+  \node at (16.07,-9.47) {Line of Subjectivity\\(Duration)};
+\end{tikzpicture}
+\end{document}

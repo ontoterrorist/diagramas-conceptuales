@@ -1,0 +1,35 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=gris, every node/.append style={font=\px{33}, text=tinta}, line width=1.4pt,
+    articula/.style={line cap=round, dash pattern=on 0pt off 9pt, line width=2.6pt,
+                     {Triangle[open,length=4.4mm,width=3.6mm,line width=1.4pt]}-{Triangle[open,length=4.4mm,width=3.6mm,line width=1.4pt]}}]
+  \node[titulo=62] at (9.57,-0.4) {The Two Articulations of Stratification};
+  \node[font=\bfseries\itshape\px{42}] at (3.85,-3.05) {Substance\\(Territoriality)};
+  \node[font=\bfseries\itshape\px{42}] at (15.22,-3.1) {Form\\(Coding)};
+
+  % Sustancia
+  \draw (3.88,-7.78) ellipse [x radius=3.77, y radius=3.38];
+  \draw (3.88,-8.72) circle [radius=2.44];
+  \draw[puntitos, line width=1.1pt] (3.88,-9.65) circle [radius=1.5];
+  \node at (3.82,-5.36) {Substantial\\Elements\\(Molar)};
+  \node at (3.9,-7.2) {Molecular\\compounds};
+  \node at (3.9,-9.66) {Matter\\(Free Floating\\Singularities)};
+
+  % Forma
+  \draw (15.32,-7.83) ellipse [x radius=3.75, y radius=3.37];
+  \draw (15.32,-8.77) circle [radius=2.43];
+  \draw[puntitos, line width=1.1pt] (15.32,-9.7) circle [radius=1.5];
+  \node at (15.17,-5.45) {Functional\\Organization};
+  \node at (15.33,-7.27) {Statistical\\Distribution};
+  \node at (15.33,-9.72) {Formless};
+
+  % Articulaciones
+  \draw[articula] (6.72,-5.48) -- (12.55,-5.52);
+  \draw[articula] (5.97,-7.38) -- (13.25,-7.41);
+  \draw[articula] (5.42,-9.67) -- (13.8,-9.72);
+  \node[font=\itshape\px{33}] at (9.65,-4.88) {Second Articulation\\(Expression)};
+  \node[font=\itshape\px{33}] at (9.75,-6.8) {First Articulation\\(Content)};
+  \node[font=\itshape\px{33}] at (9.62,-9.15) {Pre-Stratification};
+\end{tikzpicture}
+\end{document}

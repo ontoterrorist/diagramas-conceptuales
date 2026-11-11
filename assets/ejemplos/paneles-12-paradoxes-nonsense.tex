@@ -1,0 +1,39 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+% Un árbol de tipos: x del centro, y de la raíz, raíz, tres hijos
+\newcommand\arbol[6]{%
+  \node[font=\bfseries\px{33}] at (#1-0.08,#2+1.53) {Type Level};
+  \node at (#1,#2+0.88) {T1};
+  \node at (#1,#2) {#3};
+  \draw[lleno] (#1,#2-0.37) -- (#1,#2-1.67);
+  \draw[lleno, rounded corners=6pt] (#1,#2-1.04) -- (#1-1.8,#2-1.04) -- (#1-1.8,#2-1.67);
+  \draw[lleno, rounded corners=6pt] (#1,#2-1.04) -- (#1+1.8,#2-1.04) -- (#1+1.8,#2-1.67);
+  \node at (#1-1.8,#2-2.07) {#4};
+  \node at (#1,#2-2.07) {#5};
+  \node at (#1+1.8,#2-2.07) {#6};
+  \node at (#1,#2-2.89) {T0};
+  \node[font=\bfseries\px{33}] at (#1-0.08,#2-3.72) {Type Level};
+}
+\begin{document}
+\begin{tikzpicture}[color=gris, every node/.append style={font=\px{33}, text=tinta}, line width=1.1pt,
+    every picture/.append style={}, >={Latex[length=3.6mm,width=2.6mm]}]
+  \tikzset{lleno/.style={-{Latex[length=3.6mm,width=2.6mm]}}}
+  \node[titulo=62] at (8.6,-0.78) {Paradoxes of Nonsense in Signification};
+
+  \node[font=\bfseries\itshape\px{40}] at (8.85,-3.1) {Regular Law};
+  \arbol{5.4}{-5.63}{Animal}{Bird}{Man}{Tick}
+  \arbol{11.8}{-5.63}{Plant}{Herb}{Fern}{Fruit}
+  \draw[<->] (6.25,-5.68) -- (10.98,-5.68);
+
+  \node[font=\bfseries\itshape\px{40}] at (8.85,-11.95) {Nonsense};
+  \arbol{5.73}{-14.55}{Animal}{Animal}{Man}{Tick}
+  \arbol{12.13}{-14.55}{Plant}{Herb}{Fern}{Animal}
+  \draw[<->] (6.6,-14.58) -- (11.3,-14.58);
+  \draw[puntitos, line width=1.2pt, -{Triangle[open,length=3.6mm,width=3mm]}]
+    (3.27,-16.62) .. controls (2.55,-16.6) and (2.7,-14.55) .. (4.88,-14.55);
+  \draw[puntitos, line width=1.2pt, -{Triangle[open,length=3.6mm,width=3mm]}]
+    (14.92,-16.62) .. controls (15.65,-16.6) and (15.5,-14.55) .. (12.95,-14.55);
+  \node[font=\itshape\px{33}] at (1.3,-15.65) {Paradox of the\\Abnormal Set};
+  \node[font=\itshape\px{33}] at (16.7,-15.65) {Paradox of the\\Rebel Element};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,93 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=gris, every node/.append style={font=\px{29}, text=tinta}, line width=1.3pt,
+    caja/.style={draw=tinta, rounded corners=5pt, line width=1.8pt},
+    fusible/.style={line width=1.1pt, dash pattern=on 9pt off 3pt on 1pt off 3pt on 1pt off 3pt,
+                    -{Triangle[open,length=3.6mm,width=3mm]}},
+    fuerza/.style={rayas, -{Latex[length=3.6mm,width=2.8mm]}},
+    ejercicio/.style={rayas, {Latex[length=3.6mm,width=2.8mm]}-{Latex[length=3.6mm,width=2.8mm]}},
+    paralelo/.style={puntitos, {Latex[length=3.6mm,width=2.8mm]}-{Latex[length=3.6mm,width=2.8mm]}},
+    baja/.style={line width=1.6pt, -{Latex[length=4.4mm,width=3.2mm]}},
+    sub/.style={font=\itshape\px{19}}]
+  \node[titulo=60] at (6.17,-0.4) {The Double Genesis of Thinking and Sensibility};
+  \node[font=\bfseries\itshape\px{36}] at (6.05,-1.6) {Larval\\Subjectivation};
+  \node[font=\itshape\px{22}] at (6.08,-2.4) {Fuse of Violence.};
+  \draw[fusible] (5.25,-2.42) .. controls (2.0,-2.55) and (0.55,-3.7) .. (1.34,-5.1);
+  \draw[fusible] (6.95,-2.42) .. controls (10.2,-2.55) and (11.65,-3.7) .. (10.9,-5.1);
+
+  % Facultades
+  \draw[caja] (5.1,-3.0) rectangle (6.95,-3.75);
+  \node[font=\itshape\px{34}] at (6.02,-3.38) {Faculty};
+  \foreach \xa/\xb/\t in {1.32/3.22/Sensibility, 4.9/7.2/Memory, 8.85/10.9/Thought} {
+    \draw[caja] (\xa,-5.12) rectangle (\xb,-5.77);
+    \node at ({(\xa+\xb)/2},-5.44) {\t};
+  }
+  \foreach \xa/\xb/\t in {1.32/3.22/Sentiendum, 4.9/7.2/Memorandum, 8.85/10.9/Cogitandum} {
+    \draw[caja] (\xa,-7.53) rectangle (\xb,-8.18);
+    \node[font=\itshape\px{29}] at ({(\xa+\xb)/2},-7.85) {\t};
+  }
+  \draw[caja] (5.12,-9.7) rectangle (6.97,-10.45);
+  \node[font=\itshape\px{34}] at (6.04,-10.07) {Object};
+
+  \draw[rayas] (6.02,-3.8) .. controls (5.6,-4.35) and (2.35,-4.3) .. (2.27,-5.12);
+  \draw[rayas] (6.02,-3.8) -- (6.02,-5.12);
+  \draw[rayas] (6.02,-3.8) .. controls (6.45,-4.35) and (9.8,-4.3) .. (9.88,-5.12);
+  \foreach \y in {-5.45,-7.86} {
+    \draw[fuerza] (3.3,\y) -- (4.85,\y);
+    \draw[fuerza] (7.25,\y) -- (8.8,\y);
+    \node[font=\itshape\px{21}] at (3.9,\y+0.25) {Force};
+    \node[font=\itshape\px{21}] at (7.98,\y+0.25) {Force};
+  }
+  \foreach \x in {2.27,6.03,9.88} {
+    \draw[ejercicio] (\x,-5.82) -- (\x,-7.48);
+    \node[etq, sub] at (\x,-6.65) {Transcendental Exercise};
+  }
+  \draw[rayas] (2.27,-8.22) .. controls (2.4,-8.9) and (5.6,-8.8) .. (6.04,-9.7);
+  \draw[rayas] (6.04,-8.22) -- (6.04,-9.7);
+  \draw[rayas] (9.88,-8.22) .. controls (9.7,-8.9) and (6.5,-8.8) .. (6.04,-9.7);
+
+  % Encuentro y vice-dicción
+  \draw[fusible] (2.88,-11.2) .. controls (0.9,-10.8) and (0.5,-7.95) .. (1.27,-7.86);
+  \node[etq, font=\itshape\px{22}] at (1.13,-9.75) {The Encounter\\(Shock)};
+  \draw[fusible] (10.95,-7.86) .. controls (11.75,-8.0) and (11.5,-10.6) .. (9.0,-11.2);
+  \node[etq, font=\itshape\px{22}] at (10.72,-9.78) {Vice-Diction\\(Imperative Question)};
+
+  % Lo virtual
+  \node[font=\itshape\px{30}] at (4.03,-11.17) {Intensity};
+  \node[font=\itshape\px{30}] at (8.05,-11.17) {Ideas};
+  \node[font=\bfseries\itshape\px{34}] at (1.2,-12.12) {Aesthetic of\\Intensities};
+  \node[font=\bfseries\itshape\px{34}] at (10.28,-12.15) {Dialectic\\of Ideas};
+  \draw[baja] (4.03,-11.62) -- (4.03,-12.6);
+  \draw[baja] (8.05,-11.62) -- (8.05,-12.6);
+  \node at (4.03,-12.92) {Intensive\\\textit{Spatium}};
+  \node at (8.08,-12.97) {Free Floating\\Singularities};
+  \draw[line width=1.4pt] (4.03,-13.3) -- (4.03,-13.75);
+  \draw[line width=1.4pt] (8.08,-13.3) -- (8.08,-13.75);
+  \node[sub] at (3.95,-14.0) {Individuation\\(Assymetrical Synthesis)};
+  \node[sub] at (8.03,-14.0) {Individuation\\(Differential Relation)};
+  \node[font=\bfseries\itshape\px{30}] at (6.07,-14.05) {Virtual};
+  \draw[baja] (4.03,-14.25) -- (4.03,-14.82);
+  \draw[baja] (8.08,-14.25) -- (8.08,-14.85);
+  \node at (4.03,-15.22) {Spatio-Temporal\\Dynamisms};
+  \node at (8.08,-15.22) {Field of\\Solvability};
+  \foreach \y in {-11.18,-12.95,-15.2} \draw[paralelo] (5.2,\y) -- (6.95,\y);
+
+  % Lo actual
+  \foreach \x/\l/\r/\t in {4.03/3.43/4.55/Explication, 8.08/7.55/8.6/Actualization} {
+    \draw[line width=1.4pt] (\x,-15.6) -- (\x,-15.88);
+    \node[sub] at (\x,-16.02) {\t};
+    \draw[baja, rounded corners=7pt] (\x,-16.17) -- (\x,-16.55) -- (\l,-16.55) -- (\l,-17.62);
+    \draw[baja, rounded corners=7pt] (\x,-16.17) -- (\x,-16.55) -- (\r,-16.55) -- (\r,-17.62);
+  }
+  \node at (3.43,-17.92) {Qualities};
+  \node at (4.55,-17.92) {Extensity};
+  \node at (7.55,-17.92) {Parts};
+  \node at (8.6,-17.92) {Species};
+  \draw[rayas, {Triangle[open,length=3.6mm,width=3mm]}-{Triangle[open,length=3.6mm,width=3mm]}]
+    (4.55,-18.3) -- (4.55,-18.87) -- (7.57,-18.87) -- (7.57,-18.3);
+  \draw[rayas, {Triangle[open,length=3.6mm,width=3mm]}-{Triangle[open,length=3.6mm,width=3mm]}]
+    (3.43,-18.3) -- (3.43,-19.38) -- (8.6,-19.38) -- (8.6,-18.3);
+  \node[font=\bfseries\itshape\px{30}] at (6.05,-19.67) {Actual};
+\end{tikzpicture}
+\end{document}

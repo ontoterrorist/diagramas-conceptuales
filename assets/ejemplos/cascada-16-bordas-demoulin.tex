@@ -1,0 +1,27 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{31}}, puntos/.append style={line width=1.4pt},
+    flecha/.style={-{Latex[length=4.4mm,width=3.4mm]}}]
+  \node[titulo=52] at (9.62,-0.57) {Bordas-Demoulin and the Indeterminate Idea};
+  \node[font=\bfseries\px{31}] at (6.07,-3.56) {Mutable\\(Determined Idea)};
+  \node[font=\bfseries\px{31}] at (14.85,-3.53) {Immutable\\(Indeterminate Idea)};
+  \draw[puntos, -{Triangle[open,length=4.4mm,width=3.6mm,line width=1.2pt]}] (7.78,-3.55) -- (12.95,-3.55);
+  \node[etq, font=\itshape\px{26}] at (10.05,-3.55) {Limit};
+
+  \draw[puntos, flecha] (6.07,-4.15) .. controls (5.6,-5.3) and (2.6,-5.8) .. (2.32,-7.4);
+  \draw[puntos, flecha] (6.07,-4.15) .. controls (6.5,-5.3) and (9.8,-5.8) .. (10.12,-7.4);
+  \draw[puntos, flecha] (14.85,-4.12) -- (14.85,-7.38);
+  \node[etq, font=\itshape\px{31}] at (4.18,-5.78) {Particular};
+  \node[etq, font=\itshape\px{31}] at (8.12,-5.78) {General};
+  \node[etq, font=\itshape\px{31}] at (14.85,-5.72) {Universal};
+
+  \node at (2.29,-7.86) {\textit{Quanta}\\(Fixed quantities of Intuition)};
+  \node at (10.15,-7.86) {\textit{Quantitas}\\(Variable magnitudes in the Concept)};
+  \node at (14.85,-7.86) {\textit{Quantitativity}\\(Continuum)};
+
+  \draw[puntos, flecha] (2.29,-8.35) -- (2.29,-9.12) -- (14.85,-9.12) -- (14.85,-8.38);
+  \draw[puntos] (10.15,-8.35) -- (10.15,-9.12);
+  \node[etq, font=\itshape\px{22}] at (10.1,-9.12) {Cancelled};
+\end{tikzpicture}
+\end{document}

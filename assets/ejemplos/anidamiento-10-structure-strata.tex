@@ -1,0 +1,38 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=gris, every node/.append style={font=\px{25}, text=tinta},
+    sube/.style={puntitos, line width=1pt, -{Triangle[open,length=3.6mm,width=3mm]}}]
+  \node[titulo=46] at (8.6,-0.6) {The Structure of Strata};
+
+  % Medio exterior (círculo grande, recortado como en el original)
+  \begin{scope}
+    \clip (-0.4,-1.2) rectangle (16.2,-12.35);
+    \draw[grisclaro, puntitos, line width=0.9pt] (4.42,-7.85) circle [radius=4.72];
+  \end{scope}
+
+  % Capa central
+  \draw[line width=1.8pt] (4.42,-5.65) circle [radius=2.5];
+  \foreach \r in {1.25,0.88,0.32} \draw[puntitos, line width=1.2pt, dash pattern=on 0pt off 3pt] (4.42,-5.65) circle [radius=\r];
+  \node at (4.47,-2.78) {Membrane};
+  \node at (4.37,-4.03) {Epistrata};
+  \node at (4.42,-7.22) {S1};
+  \node at (4.42,-7.54) {(m1\quad m2\quad m3)};
+  \draw[puntitos, {Triangle[open,length=3.6mm,width=3mm]}-{Triangle[open,length=3.6mm,width=3mm]}] (2.97,-4.6) -- (2.97,-6.88);
+  \node[font=\bfseries\itshape\px{13}, rotate=90] at (2.67,-5.6) {Territorialization-Deterritorialization};
+  \draw[line width=1.3pt, rayas, decorate, decoration={brace, amplitude=10pt}] (1.85,-8.12) -- (1.85,-2.55);
+  \node[font=\bfseries\px{31}] at (0.83,-5.32) {Central\\Layer};
+
+  % Paraestratos
+  \draw[line width=1.6pt, dash pattern=on 12pt off 5pt on 1.5pt off 5pt] (13.17,-5.65) circle [radius=2.48];
+  \node at (13.17,-5.75) {Parastrata\\(associated milieu)};
+  \draw[puntitos, line width=1pt, -{Triangle[open,length=3.6mm,width=3mm]}] (10.68,-5.65) -- (6.97,-5.65);
+  \node[font=\bfseries\itshape\px{21}] at (9.2,-5.32) {Energetic transfer\\(Coding–Decoding)};
+
+  % Subestratos
+  \draw[sube] (4.42,-11.2) -- (4.42,-8.2);
+  \draw[sube, rounded corners=4pt] (4.42,-10.15) -- (3.75,-10.15) -- (3.75,-8.3);
+  \draw[sube, rounded corners=4pt] (4.42,-10.15) -- (5.0,-10.15) -- (5.0,-8.3);
+  \node at (4.43,-11.82) {Exterior milieu\\(substrata)};
+\end{tikzpicture}
+\end{document}

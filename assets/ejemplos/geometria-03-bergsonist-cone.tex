@@ -1,0 +1,45 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=tinta, every node/.append style={font=\px{37}},
+    traslado/.style={line width=0.7pt, dash pattern=on 6pt off 2pt on 1pt off 2pt, -{Latex[length=3.6mm,width=2.4mm]}}]
+  \node[titulo=82] at (10.3,-0.7) {The Bergsonist Cone};
+  \node[font=\bfseries\px{46}] at (10.33,-3.75) {Virtual Past};
+  \node[font=\bfseries\px{46}] at (17.4,-15.43) {Actual Present};
+
+  % El plano del presente
+  \draw[puntazos, rounded corners=8pt] (5.45,-11.75) -- (15.62,-11.75) -- (13.9,-18.3) -- (3.82,-18.3) -- cycle;
+
+  % Cono y secciones
+  \draw[line width=1.5pt] (7.8,-6.1) -- (10.45,-13.62) -- (12.72,-6.1);
+  \draw[rayas, line width=1.3pt] (10.27,-6.15) ellipse [x radius=2.45, y radius=1.5];
+  \draw[rayas, line width=1.3pt] (10.3,-7.7) ellipse [x radius=1.88, y radius=1.17];
+  \draw[rayas, line width=1.3pt] (10.4,-10.65) ellipse [x radius=0.95, y radius=0.67];
+  \node at (10.37,-5.42) {S1};
+  \node at (10.4,-8.37) {S2};
+  \node at (10.4,-10.95) {S3};
+  \node at (10.4,-14.1) {S4};
+
+  % Traslación / rotación hacia las imágenes
+  \draw[traslado] (9.75,-5.45) to[out=180, in=95] (8.2,-7.8) to[out=-85, in=92] (8.8,-12.95);
+  \draw[traslado] (9.75,-8.42) to[out=178, in=90] (6.32,-14.55);
+  \draw[traslado] (10.75,-10.85) to[out=0, in=90] (13.22,-15.65);
+  \draw[traslado] (10.4,-14.38) -- (10.4,-17.55);
+  \node at (8.8,-13.35) {i1};
+  \node at (6.32,-14.85) {i2};
+  \node at (13.25,-15.98) {i3};
+  \node at (10.4,-17.88) {i4};
+  \begin{scope}[every node/.append style={font=\itshape\px{34}}]
+    \node at (6.73,-8.0) {translation/rotation};
+    \node at (6.9,-10.6) {translation/rotation};
+    \node at (12.75,-12.63) {translation / rotation};
+    \node[etq] at (10.4,-16.12) {translation / rotation};
+  \end{scope}
+
+  % Contracción y dilatación
+  \draw[line width=1.5pt, dash pattern=on 16pt off 6pt on 1.5pt off 6pt, -{Latex[length=5mm,width=3.6mm]}] (2.6,-5.4) -- (2.6,-13.6);
+  \draw[line width=1.5pt, dash pattern=on 16pt off 6pt on 1.5pt off 6pt, -{Latex[length=5mm,width=3.6mm]}] (3.37,-13.6) -- (3.37,-5.4);
+  \node[font=\itshape\px{32}] at (1.08,-9.25) {Contraction};
+  \node[font=\itshape\px{32}] at (4.27,-9.25) {Dilation};
+\end{tikzpicture}
+\end{document}

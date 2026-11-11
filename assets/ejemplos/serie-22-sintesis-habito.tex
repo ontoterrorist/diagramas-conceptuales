@@ -1,0 +1,39 @@
+% Synthesis of Habit
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{it/.style={font=\itshape\px{22}}}
+\node[titulo=46] at (5.14,0.40) {Synthesis of Habit};
+\draw[line width=2pt, dash pattern=on 16pt off 7pt on 2pt off 7pt] (5.15,5.55) ellipse (4.85 and 4.60);
+\node[font=\itshape\px{30}] at (5.14,1.72) {Larval Self - Id\\(Habitus)};
+
+\draw[line width=1.4pt] (3.00,3.33) ellipse (0.58 and 0.45) node[font=\px{32}] {Past};
+\draw[line width=1.4pt] (6.67,3.33) ellipse (0.58 and 0.45) node[font=\px{32}] {Future};
+
+\node[it] at (2.98,4.30) {case};
+\draw[llave=0.32cm] (1.90,4.68) -- (3.97,4.68);
+\node[it] at (6.84,4.30) {case};
+\draw[puntitos, llave=0.32cm] (5.75,4.68) -- (7.93,4.68);
+
+\node[it] at (1.22,5.10) {elementary\\repetitions};
+\foreach \x/\l in {2.00/A, 3.86/B, 5.73/A, 7.82/B}
+  \node[font=\px{38}] at (\x,5.10) {\l};
+\draw[hueco] (2.38,5.10) -- (3.62,5.10);
+\draw[hueco] (4.25,5.10) -- (5.45,5.10);
+\draw[puntitos, hueco] (6.10,5.10) -- (7.22,5.10);
+
+% contracciones hacia el presente vivo
+\draw[rayas, line width=0.9pt] (2.00,5.45) .. controls (2.00,6.30) and (3.75,6.50) .. (3.83,7.70);
+\draw[puntitos] (3.86,5.45) -- (3.85,7.70);
+\draw[rayas, line width=0.9pt] (5.73,5.45) .. controls (5.73,6.30) and (3.95,6.50) .. (3.87,7.70);
+\fill (3.85,7.98) -- (3.73,7.55) -- (3.97,7.55) -- cycle;
+\node[it] at (2.12,6.55) {binding\\contraction};
+\node[it] at (5.62,6.55) {binding\\contraction};
+
+\draw[line width=1.4pt] (3.85,8.48) ellipse (0.70 and 0.50) node[font=\px{30}] {Living\\Present};
+
+\draw[rayapunto, hueco] (4.55,8.30) -- (7.80,8.30) -- (7.80,5.35);
+\node[it] at (7.30,6.57) {expectation};
+\end{tikzpicture}
+\end{document}

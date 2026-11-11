@@ -1,0 +1,59 @@
+% Theories in Succession
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img, font=\sffamily]
+\tikzset{
+  t/.style={font=\sffamily\px{18}},
+  mini/.style={font=\sffamily\px{12}},
+  supuestos/.style={font=\sffamily\px{13}, anchor=west},
+  iso/.style={line width=1.2pt, dash pattern=on 9pt off 5pt, lleno},
+  asup/.style={puntitos, -{Triangle[open,length=3mm,width=2.4mm]}},
+}
+\node[font=\sffamily\bfseries\px{24}] at (4.95,0.67) {Theories in Succession};
+
+\draw (0.80,1.50) circle (0.40) node[t] {Ti};
+\draw (4.40,1.10) rectangle (5.38,1.90); \node[t] at (4.89,1.50) {Tj};
+\draw (8.60,1.45) -- (9.19,1.01) -- (9.79,1.45) -- (9.19,1.88) -- cycle; \node[t] at (9.19,1.45) {Tk};
+\draw[lleno] (1.20,1.50) -- (4.38,1.50);
+\draw[lleno] (5.38,1.50) -- (8.58,1.48);
+
+% teoría virtual Tj*
+\draw[asup] (4.89,1.92) -- (4.89,3.08);
+\node[t] at (5.15,2.37) {Aj};
+\node[supuestos] at (5.32,2.42) {Counter-theoretical\\Assumptions};
+\draw[puntitos] (4.10,3.10) rectangle (5.68,4.60);
+\node[mini] at (4.89,3.36) {Counterpart\\Model};
+\draw[puntitos] (4.89,3.95) circle (0.40) node[t] {Ti\textquotesingle};
+\node[t] at (4.89,4.80) {Tj*};
+\node[t] at (4.89,5.07) {Virtual Theory};
+
+% teoría virtual Tk*
+\draw[asup] (9.19,1.90) -- (9.19,3.08);
+\node[t] at (9.46,2.37) {Ak};
+\node[mini, font=\sffamily\px{13}] at (10.26,2.43) {Counter-theoretical\\Assumptions};
+\draw[puntitos] (6.75,5.16) -- (9.19,3.12) -- (11.66,5.16) -- (9.19,7.21) -- cycle;
+\draw[puntitos, fill=white] (8.72,3.69) rectangle (9.66,4.49);
+\node[mini] at (9.20,3.90) {Counterpart\\Model};
+\node[t] at (9.20,4.24) {Tj\textquotesingle};
+\draw[asup] (9.19,4.49) -- (9.19,5.07);
+\node[t] at (9.38,4.77) {Aj\textquotesingle};
+\node[mini, font=\sffamily\px{13}] at (10.17,4.79) {Counter-theoretical\\Assumptions};
+\draw[puntitos, fill=white] (8.40,5.09) rectangle (9.98,6.49);
+\node[mini] at (9.19,5.33) {Counterpart\\Model};
+\draw[puntitos] (9.18,5.95) circle (0.38) node[t] {Ti\textquotesingle\textquotesingle};
+\node[t] at (9.20,6.68) {Tj*\textquotesingle};
+\node[t] at (9.19,7.47) {Tk*};
+\node[t] at (9.19,7.77) {Virtual Theory};
+
+% isomorfismos nomológicos
+\draw[iso] (1.20,1.50) .. controls (3.00,1.60) and (3.00,3.95) .. (4.47,3.95);
+\draw[iso] (5.29,4.00) .. controls (7.00,4.00) and (7.20,5.95) .. (8.78,5.95);
+\draw[iso] (0.80,1.90) .. controls (1.60,4.60) and (3.50,5.95) .. (8.78,5.95);
+\draw[iso] (5.40,1.50) .. controls (7.40,1.60) and (7.20,4.07) .. (8.70,4.07);
+\node[t] at (3.60,2.68) {Nomological\\Isomorph};
+\node[t] at (6.76,3.97) {Nomological\\Isomorph};
+\node[t] at (2.00,4.94) {Nomological\\Isomorph};
+\node[t] at (7.62,2.67) {Nomological\\Isomorph};
+\end{tikzpicture}
+\end{document}

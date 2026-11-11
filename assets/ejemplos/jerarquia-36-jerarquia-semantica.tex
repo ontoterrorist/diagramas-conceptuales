@@ -1,0 +1,79 @@
+% Semantic Hierarchy
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img, font=\sffamily]
+\tikzset{
+  ov/.style={line width=1.2pt},
+  t/.style={font=\sffamily\px{10.5}},
+  tb/.style={font=\sffamily\bfseries\px{11}},
+  rama/.style={line width=2.6pt},
+  lista/.style={font=\sffamily\px{8.2},anchor=north west, align=left, inner sep=0pt},
+  llavep/.style={puntitos, line width=1.2pt, llave=0.3cm},
+}
+% bifurcaciones: « < » desde un óvalo y « > » hacia el siguiente
+\newcommand\abre[1]{\draw[rama] (#1+0.25,1.21) -- (#1+0.17,1.21) -- (#1,1.38) -- (#1+0.17,1.59) -- (#1+0.25,1.59);}
+\newcommand\cierra[1]{\draw[rama] (#1-0.30,1.21) -- (#1-0.20,1.21) -- (#1,1.38) -- (#1-0.20,1.59) -- (#1-0.30,1.59);}
+
+\node[tb] at (3.55,0.59) {Semantic Hierarchy};
+\draw[puntitos, line width=1.4pt, -{Straight Barb[length=2.4mm,width=3.2mm]}] (0.28,0.80) -- (7.00,0.80);
+
+\draw[ov] (0.48,1.38) ellipse (0.40 and 0.25);
+\node[tb, font=\sffamily\bfseries\px{9.5}] at (0.48,1.38) {RDRD /\\Classification};
+\abre{0.88} \cierra{2.17}
+\node[t] at (1.52,1.13) {Non-\\Conceptual};
+\node[t] at (1.52,1.62) {Proto-\\Conceptual\\(Labelling)};
+
+\draw[ov] (2.48,1.38) ellipse (0.31 and 0.29);
+\node[tb, font=\sffamily\bfseries\px{9.5}] at (2.48,1.38) {Description\\(Material\\inference)};
+\abre{2.80} \cierra{4.17}
+\node[t] at (3.56,1.22) {Incompatibility};
+\node[t] at (3.56,1.59) {Consequence};
+
+\draw[ov] (4.60,1.37) ellipse (0.43 and 0.27);
+\node[tb, font=\sffamily\bfseries\px{9.5}] at (4.60,1.37) {Logical\\explicitation\\(Formal\\inference)};
+\abre{5.04} \cierra{6.35}
+\node[t] at (5.70,1.17) {Pragmatic\\Inferences};
+\node[t] at (5.70,1.60) {Semantic\\Inferences};
+
+\draw[ov] (6.71,1.40) ellipse (0.36 and 0.26);
+\node[tb] at (6.71,1.40) {Theory\\formation};
+\draw[rama] (7.13,1.24) -- (7.73,0.20) -- (7.78,0.20);
+\draw[rama] (7.12,1.44) -- (7.53,1.83) -- (7.75,1.83);
+
+% teorías
+\node[tb, anchor=north west, align=left] at (7.82,0.04) {Informal\\Theories};
+\node[lista] at (7.88,0.33) {\textbullet\ Hermeneutics\\\textbullet\ Meta-ontologies};
+\node[tb, anchor=north west] at (7.78,0.86) {Formal Theories};
+\node[lista] at (7.82,1.04) {%
+  \textbullet\ S1) Data Recollection as structure identification\\
+  \phantom{\textbullet\ }for informal theories.\\
+  \textbullet\ S2) Formalization of theory\\
+  \quad\textbullet\ Coherence-Network Method\\
+  \qquad\textbullet\ Non-linear systems\\
+  \quad\textbullet\ Axiomatics\\
+  \qquad\textbullet\ Euclidean\\
+  \qquad\textbullet\ Informal Hilbertean\\
+  \qquad\textbullet\ Formal Hilbert\\
+  \qquad\textbullet\ Informal Set theory\\
+  \qquad\textbullet\ Formal set theory\\
+  \textbullet\ S3) Systematization of theories - Meta theories\\
+  \quad\textbullet\ Partial (Systematization of some theories)\\
+  \quad\textbullet\ Global systematics (of the universe of discourse)\\
+  \textbullet\ S4) Assessment of system.};
+\draw[puntitos, line width=1.3pt, {Straight Barb[length=2.4mm,width=3.2mm]}-{Straight Barb[length=2.4mm,width=3.2mm]}]
+  (8.97,1.36) -- (9.83,1.36) -- (9.83,2.34) -- (9.40,2.34);
+
+% monotonicidad
+\draw[puntitos, line width=1.4pt, -{Straight Barb[length=2.4mm,width=3.2mm]}] (9.95,0.00) -- (9.95,3.02);
+\node[font=\sffamily\px{13}, rotate=-90] at (10.30,1.40) {Monotonicity};
+
+% reglas y normas
+\draw[llavep] (7.05,1.75) -- (0.20,1.75);
+\node[tb, font=\sffamily\bfseries\px{12}] at (3.53,2.11) {Obeying Rules};
+\draw[llavep] (4.25,2.13) -- (0.22,2.13);
+\node[tb, font=\sffamily\bfseries\px{12}] at (2.30,2.49) {Following Norms};
+\draw[llavep] (2.22,2.62) -- (0.10,2.62);
+\node[tb, font=\sffamily\bfseries\px{12}] at (1.18,2.99) {Accordance to Rules};
+\end{tikzpicture}
+\end{document}

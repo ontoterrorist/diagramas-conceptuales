@@ -1,0 +1,37 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\bfseries\px{24}, text=tinta},
+    giro/.style={line width=2.6pt, -{Latex[length=6mm,width=6mm]}}]
+  \node[titulo=62] at (8.95,-0.55) {The Two Readings of Time};
+  \node[font=\itshape\px{42}] at (4.4,-2.15) {Chronos};
+  \node[font=\itshape\px{42}] at (13.55,-2.15) {Aion};
+
+  % Chronos: el ciclo
+  \draw[gris, puntitos] (0.82,-4.37) -- (3.85,-4.37);
+  \draw[gris, puntitos] (4.93,-4.37) -- (7.55,-4.37);
+  \node at (0.5,-4.37) {Past};
+  \node at (7.97,-4.37) {Future};
+  \node[font=\itshape\px{21}] at (2.33,-4.18) {Contraction};
+  \node[font=\itshape\px{21}] at (6.43,-4.18) {Contraction};
+  \fill[gris] (3.85,-4.27) -- (4.17,-4.37) -- (3.85,-4.47) -- cycle;
+  \fill[gris] (4.91,-4.27) -- (4.59,-4.37) -- (4.91,-4.47) -- cycle;
+  \draw[gris, puntitos, line width=1.3pt, dash pattern=on 0pt off 2.6pt] (4.38,-4.37) circle [radius=0.17];
+  \node at (4.37,-3.98) {Present};
+  \draw[giro] (4.38,-4.37) ++(-22:1.0) arc [start angle=-22, end angle=118, radius=1.0];
+  \draw[giro] (4.38,-4.37) ++(150:1.0) arc [start angle=150, end angle=300, radius=1.0];
+  \node[font=\bfseries\itshape\px{36}] at (4.3,-6.22) {Cycle};
+
+  % Aion: la línea
+  \draw[line width=3pt, {Latex[length=6mm,width=4.4mm]}-{Latex[length=6mm,width=4.4mm]}] (10.75,-4.37) -- (16.35,-4.37);
+  \node at (10.18,-4.37) {Past\ \ \textmd{\dots}};
+  \node at (16.85,-4.37) {\textmd{\dots}Future};
+  \draw[gris, puntitos] (13.55,-2.98) -- (13.55,-3.75);
+  \draw[gris, puntitos] (13.55,-4.15) -- (13.55,-5.55);
+  \draw[gris, puntitos, fill=white, line width=1.3pt, dash pattern=on 0pt off 2.6pt] (13.55,-4.37) circle [radius=0.17];
+  \node at (13.55,-3.92) {Present};
+  \node[font=\itshape\px{21}, text=gris] at (13.55,-2.8) {Division};
+  \node[font=\itshape\px{21}, text=gris] at (13.55,-5.75) {Division};
+  \node[font=\bfseries\itshape\px{36}] at (13.55,-6.22) {Line};
+\end{tikzpicture}
+\end{document}

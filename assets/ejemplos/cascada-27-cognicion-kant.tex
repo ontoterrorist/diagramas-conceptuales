@@ -1,0 +1,79 @@
+% Kant: syntheses of apprehension, reproduction and recognition
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  txt/.style={font=\px{28}},
+  peq/.style={etq, font=\px{20}},
+  grueso/.style={line width=2.6pt, dash pattern=on 9pt off 6pt},
+  nivel/.style={font=\bfseries\px{30}, anchor=west, align=left},
+  bajo/.style={line width=1.2pt, -{Latex[length=3.6mm,width=3mm]}},
+}
+% paralelogramo: centro x, centro y, ancho, alto, inclinación
+\newcommand\para[6][]{%
+  \draw[line width=1.6pt, #1] ({#2-#4/2-#6/2},{#3+#5/2}) -- ({#2-#4/2+#6/2},{#3-#5/2})
+    -- ({#2+#4/2+#6/2},{#3-#5/2}) -- ({#2+#4/2-#6/2},{#3+#5/2}) -- cycle;}
+
+% reconocimiento
+\para{7.665}{1.45}{2.99}{1.40}{0.38}
+\node[txt] at (7.67,1.43) {Predicate\\("is edible")};
+\draw[line width=1.6pt] (0.92,3.70) rectangle (4.02,4.25);
+\node[txt] at (2.47,3.97) {Schematization};
+\draw[line width=1.6pt] (6.12,3.70) rectangle (9.22,4.25);
+\node[txt] at (7.67,3.97) {Conceptualization};
+\para{2.47}{6.50}{3.00}{1.40}{0.37}
+\node[txt] at (2.47,6.50) {Image-Model};
+\para{7.665}{6.50}{2.99}{1.40}{0.38}
+\node[txt] at (7.67,6.50) {Complex-Demonstrative\\("This-red juicy apple")};
+
+\draw[puntitos, huecos] (4.05,3.97) -- (6.08,3.97);
+\draw[puntitos, huecos] (4.18,6.50) -- (6.12,6.50);
+\draw[puntitos, bajo] (7.67,3.68) -- (7.67,2.18);
+\node[peq] at (7.60,2.98) {Categorical Structure\\(Grammatical Predicate)};
+\draw[puntitos, bajo] (7.67,4.28) -- (7.67,5.78);
+\node[peq] at (7.67,4.90) {Categorical Structure\\(Grammatical Subject)};
+\draw[puntitos, bajo] (2.47,4.28) -- (2.47,5.78);
+\node[peq] at (2.62,4.90) {Algorithmic Structure\\(Rules for Construction)};
+\draw[grueso, lleno] (9.18,6.50) -- (9.75,6.50) -- (9.75,1.45) -- (9.22,1.45);
+
+\node[txt] at (11.50,3.84) {Empirical Judgment\\(This red juicy apple is edible)};
+\draw[puntos, llave=1.25cm] (12.75,0.65) -- (12.75,7.10);
+\node[nivel] at (14.00,3.84) {Syntheses of\\Recognition};
+
+% reproducción
+\draw[grueso, llave=1.75cm] (9.62,7.52) -- (0.65,7.52);
+\node[txt] at (5.13,8.87) {Representation of Individuals\\(Extensive Magnitudes)};
+\draw[puntos] (2.05,11.68) .. controls (2.00,10.20) and (4.90,10.20) .. (5.13,9.35);
+\draw[puntos] (5.13,11.68) -- (5.13,9.35);
+\draw[puntos] (8.22,11.68) .. controls (8.25,10.20) and (5.35,10.20) .. (5.13,9.35);
+\fill (5.13,9.20) -- (4.98,9.55) -- (5.28,9.55) -- cycle;
+
+% aprehensión
+\foreach \x/\n in {2.05/1, 5.15/2, 8.24/3} {
+  \para{\x}{12.27}{2.0}{1.14}{0.27}
+  \node[txt] at (\x,12.27) {Synthesized\\Manifold\\T\n};
+}
+\draw[puntitos, hueco] (3.05,12.27) -- (4.12,12.27);
+\draw[puntitos, hueco] (6.15,12.27) -- (7.22,12.27);
+
+\draw[grueso, llave=1.75cm] (9.62,13.12) -- (0.65,13.12);
+\node[txt] at (5.13,14.53) {Unsynthesized Manifold\\(Intensive Magnitudes)};
+\foreach \x in {4.28, 5.13, 5.88}
+  \draw[puntitos, hueco] (\x,15.90) -- (\x,15.15);
+\para[rayas]{5.15}{16.22}{3.27}{0.60}{0.15}
+\node[font=\itshape\px{28}] at (5.13,16.22) {Things-in-Themselves};
+
+% niveles intermedios
+\draw[puntitos, llave=0.25cm] (9.95,8.32) -- (9.95,9.48);
+\node[nivel] at (10.15,8.90) {Syntheses of\\Reproduction};
+\draw[puntitos, llave=0.25cm] (9.95,11.70) -- (9.95,12.84);
+\node[nivel] at (10.15,12.27) {Syntheses of\\Apprehension};
+\draw[puntitos, llenos] (11.05,11.68) -- (11.05,9.22);
+\node[peq, font=\px{22}] at (11.05,10.42) {Figurative Syntheses\\(Productive\\Imagination)};
+
+% cognición
+\draw[grueso, llave=2.3cm] (15.30,0.75) -- (15.30,12.83);
+\node[font=\bfseries\px{62}] at (18.35,6.76) {Cognition};
+\end{tikzpicture}
+\end{document}

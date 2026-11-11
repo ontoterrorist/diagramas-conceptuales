@@ -1,0 +1,14 @@
+% Anidamiento o alcance: un dominio, modelo o teoría dentro de otro. El contorno codifica el
+% estatus: sólido = actual, rayado = virtual. El encastre espacial ES la inclusión.
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{28}}]
+  \node[titulo=44] at (3.6,5.0) {Título del anidamiento};
+  \node[caja, minimum width=7.2cm, minimum height=4.4cm] at (2.25,2.5) {};
+  \node[font=\bfseries\px{30}, anchor=north] at (2.25,3.75) {Teoría Tj};
+  \node[caja virtual, minimum width=3.4cm, minimum height=1.9cm] (n1) at (2.25,2.2) {Modelo\\contraparte};
+  \node[caja, minimum width=2.4cm, minimum height=1cm] (n3) at (6.6,2.2) {Teoría Tk};
+  \draw[virtual] (n1.east) -- node[rotulo=20] {\textit{Isomorfo}} (n3.west);   % e1
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{30}}, puntos/.append style={line width=1.3pt},
+    flecha/.style={-{Latex[length=4.4mm,width=3.4mm]}},
+    abierta/.style={-{Triangle[open,length=4mm,width=3.4mm,line width=1.2pt]}},
+    rotulo/.style={etq, font=\itshape\px{26}},
+    gruesa/.style={dash pattern=on 6pt off 4pt, line width=1.6pt}]
+  \node[titulo=52] at (7.8,-0.6) {Maimon's Triple Genesis and The Determinable Idea};
+  \node[font=\bfseries\px{40}] at (7.43,-2.82) {Ontogenesis};
+  \draw[puntos, flecha] (7.43,-3.25) .. controls (6.0,-4.3) and (2.6,-4.6) .. (1.78,-5.82);
+  \draw[puntos, flecha] (7.43,-3.25) -- (7.43,-5.85);
+  \draw[puntos, flecha] (7.43,-3.25) .. controls (8.9,-4.3) and (12.3,-4.6) .. (13.4,-5.85);
+
+  \node[font=\bfseries\itshape\px{32}] at (1.68,-6.35) {Qualities};
+  \node[font=\bfseries\itshape\px{32}] at (7.45,-6.38) {Space and Time};
+  \node[font=\bfseries\itshape\px{32}] at (13.45,-6.38) {Concepts};
+  \draw[gruesa, abierta] (2.8,-6.38) -- (6.2,-6.38);
+  \draw[gruesa, abierta] (8.68,-6.38) -- (12.25,-6.38);
+  \node[font=\itshape\px{24}] at (4.9,-6.16) {Ontological};
+  \node[font=\itshape\px{24}] at (9.73,-6.16) {Ontological};
+
+  \foreach \x/\y in {1.68/-8.0, 7.43/-8.15, 13.45/-8.0} {
+    \draw[puntos, flecha] (\x,-6.95) -- (\x,\y);
+    \node[rotulo] at (\x,-7.25) {Reciprocal Determination};
+  }
+
+  \node at (1.68,-8.86) {\textit{dy}/\textit{dx}\\(Real Objects)};
+  \node at (7.43,-8.86) {K\textsubscript{o} (\textit{dy}/\textit{dx})\\(Knowledge of Real Objects)};
+  \node at (13.45,-8.86) {K\textsubscript{c}(K\textsubscript{o\textsubscript{2}}(\textit{dy}/\textit{dx})/ K\textsubscript{o\textsubscript{1}}(\textit{dz}/\textit{dx}))\\(Knowledge of Knowledges)};
+  \draw[gruesa, abierta] (5.32,-8.87) -- (2.82,-8.87);
+  \draw[gruesa, abierta] (11.35,-8.87) -- (9.55,-8.87);
+  \node[font=\itshape\px{24}] at (4.3,-9.15) {Epistemological};
+  \node[font=\itshape\px{24}] at (10.67,-9.15) {Epistemological};
+
+  \draw[puntos] (7.43,-9.48) -- (7.43,-10.1);
+  \draw[puntos, flecha] (5.75,-10.38) -- (1.65,-10.38) -- (1.65,-9.65);
+  \draw[puntos, flecha] (9.1,-10.38) -- (13.45,-10.38) -- (13.45,-9.65);
+  \node[font=\itshape\px{30}] at (7.43,-10.38) {Reciprocal Determination};
+\end{tikzpicture}
+\end{document}

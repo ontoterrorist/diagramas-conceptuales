@@ -1,0 +1,64 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=gris, every node/.append style={font=\px{24}, text=tinta}, line width=1pt,
+    rotulo/.style={etq, font=\bfseries\itshape\px{17}},
+    det/.style={puntitos, line width=1.1pt, -{Triangle[open,length=3.2mm,width=2.6mm]}},
+    every path/.append style={rounded corners=4pt}]
+  \node[titulo=48] at (10.1,-0.75) {The Intensive and the Extensive};
+  \node[font=\bfseries\px{30}] at (7.27,-2.62) {Intensity\\(\textit{Spatium})};
+
+  % Síntesis del espacio
+  \draw[lleno] (7.27,-4.45) -- (7.27,-3.0);
+  \node[rotulo] at (7.27,-3.7) {Implicated\\Depth};
+  \draw[lleno] (7.27,-4.45) -- (3.45,-4.45) -- (3.45,-5.9);
+  \draw[lleno] (7.27,-4.45) -- (11.5,-4.45) -- (11.5,-5.92);
+  \node[rotulo] at (5.57,-4.45) {Explication};
+  \node[rotulo] at (9.57,-4.45) {Covering};
+  \node[font=\bfseries\itshape\px{30}] at (7.3,-5.33) {Syntheses of Space};
+  \node[font=\bfseries\px{26}] at (3.45,-6.2) {Extensity};
+  \node[font=\bfseries\px{26}] at (11.5,-6.2) {Quality};
+  \draw[det] (10.85,-6.22) -- (4.12,-6.22);
+  \node[rotulo] at (7.23,-6.22) {Filling};
+
+  % Implicación
+  \draw[rayas, lleno] (17.68,-2.63) -- (8.47,-2.63);
+  \draw[rayas, lleno] (17.68,-2.63) -- (17.68,-7.45);
+  \node[rotulo] at (17.68,-2.63) {Implicated};
+
+  % Ramas
+  \draw (3.45,-6.5) -- (3.45,-6.97);
+  \draw[lleno] (3.45,-6.97) -- (1.6,-6.97) -- (1.6,-7.45);
+  \draw[lleno] (3.45,-6.97) -- (5.27,-6.97) -- (5.27,-7.45);
+  \draw (11.5,-6.5) -- (11.5,-6.97);
+  \draw[lleno] (11.5,-6.97) -- (9.38,-6.97) -- (9.38,-7.45);
+  \draw[lleno] (11.5,-6.97) -- (13.52,-6.97) -- (13.52,-7.45);
+
+  \begin{scope}[every node/.append style={font=\itshape\px{22}}]
+    \node at (1.6,-7.78) {Extensio\\(Extended Objects)};
+    \node at (5.27,-7.78) {Extensum\\(Extensive Magnitudes)};
+    \node at (9.38,-7.78) {Qualitas\\(Directional Milieu)};
+    \node at (13.52,-7.78) {Quale\\(Objective Determination)};
+    \node at (17.7,-7.78) {Intensum\\(Intensive Magnitudes)};
+  \end{scope}
+  \draw[det] (4.25,-7.79) -- (2.42,-7.79);
+  \draw[det] (12.4,-7.79) -- (10.27,-7.79);
+  \draw[puntitos, line width=1.1pt, lleno] (16.67,-7.79) -- (14.67,-7.79);
+  \node[rotulo] at (3.42,-7.79) {Determination};
+  \node[rotulo] at (11.42,-7.79) {Determination};
+  \node[rotulo] at (15.75,-7.79) {Determination};
+
+  % Hojas
+  \foreach \c/\hojas in {1.6/{0.65/Point,1.6/Line,2.65/Plane},
+                         5.3/{4.33/Length,5.3/Area,6.28/Volume},
+                         9.38/{7.88/Left - Right,9.38/Up - Down,10.75/Figure - Ground},
+                         13.52/{12.8/Red-Blue\dots,14.23/Fuzzy-Smooth\dots},
+                         17.7/{16.47/Pressure,17.7/Temperature,18.92/Speed}} {
+    \draw (\c,-8.15) -- (\c,-8.58);
+    \foreach \x/\t in \hojas {
+      \draw[lleno] (\c,-8.58) -- (\x,-8.58) -- (\x,-9.15);
+      \node at (\x,-9.42) {\t};
+    }
+  }
+\end{tikzpicture}
+\end{document}

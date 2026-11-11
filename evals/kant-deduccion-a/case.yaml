@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: kant-deduccion-a
+expected_outcome: |
+  A TikZ diagram, compiled to PDF and PNG, with the three syntheses (apprehension, reproduction, recognition) grouped as levels (braces), the 'I think' (transcendental apperception) and the thing in itself drawn with a dashed or dotted outline (or as an unknown), leading to cognition. Fidelity book present. Compare with corpus diagrams 26-27.

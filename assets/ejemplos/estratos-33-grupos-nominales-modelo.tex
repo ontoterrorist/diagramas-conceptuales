@@ -1,0 +1,63 @@
+% Noun groups, categories and model-structure
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  mayus/.style={font=\bfseries\px{24}},
+  pal/.style={font=\px{28}},
+  palb/.style={font=\bfseries\px{29}},
+  peq/.style={font=\bfseries\px{15}},
+  flecha/.style={puntitos, line width=1.3pt, -{Straight Barb[length=2.4mm,width=3.2mm]}},
+  imp/.style={line width=1.2pt, -{Latex[length=3mm,width=2.4mm]}},
+  m/.style={font=\px{21}},
+}
+\node[mayus] at (5.25,1.03) {ULTIMATE GENERA};
+\node[mayus] at (5.30,5.27) {LOWERMOST NODES};
+\node[font=\bfseries\px{28}] at (1.28,3.28) {NOUN GROUPS\\(L)};
+\draw[puntitos, line width=1.3pt, {Straight Barb[length=2.4mm,width=3.2mm]}-{Straight Barb[length=2.4mm,width=3.2mm]}]
+  (2.77,1.45) -- (2.77,4.95);
+\fill (2.77,3.13) circle (0.07);
+\node[peq] at (1.95,2.24) {Generalization};
+\node[peq] at (1.90,3.93) {Specification};
+
+% las tres columnas: género, especie, nodo inferior
+\node[palb] at (3.54,1.72) {Thing};  \node[palb] at (4.29,1.72) {/};
+\node[palb] at (5.27,1.72) {Event};  \node[palb] at (6.09,1.72) {/};
+\node[palb] at (6.92,1.72) {Person};
+\node[pal] at (3.49,3.13) {Car};     \node[pal] at (4.06,3.13) {/};
+\node[pal] at (5.11,3.13) {Explosion}; \node[pal] at (6.09,3.13) {/};
+\node[pal] at (6.86,3.13) {Man};
+\node[pal] at (3.65,4.55) {Ford};    \node[pal] at (4.12,4.55) {/};
+\node[pal] at (5.15,4.55) {Gas Explosion}; \node[pal] at (6.20,4.55) {/};
+\node[pal] at (7.02,4.55) {Male Punk};
+\foreach \x in {3.57, 5.36, 6.94} {
+  \draw[flecha] (\x,2.92) -- (\x,1.97);
+  \draw[flecha] (\x,3.36) -- (\x,4.30);
+}
+\fill (8.62,1.72) circle (0.05);
+\draw[flecha] (8.62,1.72) -- (7.58,1.72);
+
+% matriz: modelo, categorías, inferencias (la línea pasa por la primera letra)
+\newcommand\columna[1]{%
+  \draw[flecha] (#1,1.55) -- (#1,0.42);  \fill (#1,1.55) circle (0.05);
+  \draw[flecha] (#1,1.88) -- (#1,2.95);  \fill (#1,1.88) circle (0.05);}
+\columna{8.68} \columna{9.51} \columna{11.35} \columna{12.20}
+\tikzset{m/.append style={anchor=west, inner sep=0pt}}
+\node[m] at (8.61,0.25) {$s_i \in M$};      \node[m] at (9.44,0.25) {$m_i \in M$};
+\node[m] at (8.61,1.72) {$c_i \in T_m$};    \node[m] at (9.44,1.72) {$d_i \in T_m$};
+\node[pal] at (9.10,3.13) {\underline{A} is a \underline{K}};
+\node[m] at (11.28,0.25) {$s_i \in M$};     \node[m] at (12.13,0.25) {$m_j \in M$};
+\node[m] at (11.28,1.72) {$c_i \in T_m$};   \node[m] at (12.13,1.72) {$d_j \in T_m$};
+\node[pal] at (11.80,3.13) {\underline{A} is \underline{S}};
+\node[peq] at (8.10,1.01) {Interpretation};
+\node[peq] at (8.10,2.37) {Categorization};
+\foreach \y in {0.25, 1.72, 3.13} {
+  \draw[imp] (10.30,\y) -- (11.00,\y);
+  \node[peq] at (10.65,\y+0.24) {Implication};
+}
+\node[mayus, anchor=west] at (13.40,0.25) {MODEL-STRUCTURE (M)};
+\node[mayus, anchor=west] at (13.40,1.72) {CATEGORIES AND DESCRIPTORS ($\boldsymbol{T_m}$)};
+\node[mayus, anchor=west] at (13.40,3.16) {CATEGORICAL INFERENCES ($\boldsymbol{C_L}$)};
+\end{tikzpicture}
+\end{document}

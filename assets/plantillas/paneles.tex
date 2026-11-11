@@ -1,0 +1,23 @@
+% Paneles comparativos: DOS versiones de la misma estructura. Las mitades comparten
+% disposición para que la diferencia salte a la vista: se dibuja la estructura una sola
+% vez como macro y se aplica en cada panel; lo que difiere se marca con el trazo.
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{diagrama}
+\newcommand\estructura[3]{% desplazamiento x, estilo del trazo central, nombre del panel
+  \begin{scope}[shift={(#1,0)}]
+    \node[font=\bfseries\itshape\px{36}] at (2,4.4) {#3};
+    \node (a) at (0.2,2.6) {Término A};
+    \node (b) at (3.8,2.6) {Término B};
+    \node (c) at (2,0.8)   {Término C};
+    \draw[derivacion] (a) -- (c);
+    \draw[derivacion] (b) -- (c);
+    \draw[#2] (a) -- (b);
+  \end{scope}}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{30}}]
+  \node[titulo=44] at (5.5,5.6) {Título de la comparación};
+  \estructura{0}{reciproca}{Versión 1}
+  \estructura{7}{anulacion}{Versión 2}
+  \draw[puntitos] (5.5,0.2) -- (5.5,4.8);
+\end{tikzpicture}
+\end{document}

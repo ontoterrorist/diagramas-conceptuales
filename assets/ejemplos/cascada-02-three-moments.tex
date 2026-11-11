@@ -1,0 +1,57 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=tinta, every node/.append style={font=\px{31}}, line width=1.3pt]
+  \node[titulo=62] at (11.62,-0.88) {The Three Moments};
+
+  % Momento suficiente: la decisión filosófica
+  \node (syn) at (11.57,-2.78) {Synthesis};
+  \node at (9.02,-4.44) {Empirical\\(datum)};
+  \node at (14.15,-4.46) {Transcendental\\(factum)};
+  \draw[puntitos, llenos] (10.28,-4.43) -- (12.86,-4.43);
+  \node[etq, font=\itshape\px{24}] at (11.57,-4.42) {Parallelism};
+  \draw[rayas, lleno] (9.12,-4.05) -- (10.85,-3.08);
+  \draw[rayas, lleno] (13.95,-4.05) -- (12.3,-3.08);
+  \draw[rayas] (9.15,-4.98) .. controls (9.2,-5.9) and (10.3,-6.4) .. (11.65,-7.25);
+  \draw[rayas] (13.95,-4.98) .. controls (13.9,-5.9) and (13.0,-6.4) .. (11.65,-7.25);
+  \node[font=\itshape\px{31}] at (6.13,-3.5) {Philosophical\\Decision};
+  \draw[line width=1.6pt, decorate, decoration={brace, amplitude=12pt}] (7.75,-4.85) -- (7.75,-2.3);
+
+  % Momento trascendental
+  \node at (6.1,-7.47) {The One};
+  \node at (11.6,-7.74) {\textit{X}\\(Occasional Cause)};
+  \draw[rayas, lleno] (6.13,-7.1) -- (6.13,-4.0);
+  \node[etq, font=\itshape\px{24}] at (6.1,-5.5) {subordination};
+  \draw[rayapunto, lleno] (6.88,-7.5) -- (11.25,-7.52);
+  \node[etq, font=\itshape\px{24}] at (9.17,-7.5) {extraction};
+  \draw[puntos] (6.1,-7.95) -- (6.1,-10.3);
+  \draw[rayapunto, lleno] (11.57,-8.3) -- (6.15,-10.37);
+  \node[etq, font=\itshape\px{24}] at (8.87,-9.3) {Cloning};
+  \draw[rayapunto, lleno] (11.6,-8.3) -- (11.6,-10.42);
+  \node[etq, font=\itshape\px{24}] at (11.6,-9.3) {reduction};
+
+  % Momento apriorístico
+  \node at (6.03,-10.9) {Transcendental Identity\\(Clone of the One)};
+  \node at (11.67,-10.9) {E\textit{x}\\(empirical datum)};
+  \draw[rayapunto, lleno] (11.0,-10.75) -- (7.9,-10.75);
+  \draw[rayapunto, lleno] (11.65,-11.5) -- (6.0,-13.72);
+  \node[etq, font=\itshape\px{24}] at (8.8,-12.57) {reduction};
+  \draw[puntos] (6.03,-11.5) -- (6.03,-13.4);
+  \node at (5.92,-14.02) {\textit{A priori}\\(Thought)};
+  \draw[rayapunto, lleno, rounded corners=4pt] (5.15,-13.97) -- (3.72,-13.97) -- (3.72,-10.72) -- (4.32,-10.72);
+  \node[etq, font=\itshape\px{24}] at (3.7,-12.45) {Unilateral\\Distinction};
+
+  % Determinación en última instancia
+  \draw[puntos, lleno] (5.35,-7.5) -- (1.72,-7.5) -- (1.72,-14.85) -- (5.95,-14.85) -- (5.95,-14.32);
+  \node[etq, font=\itshape\px{31}] at (1.72,-10.57) {Determination\\In the Last Instance};
+
+  % Los tres momentos
+  \begin{scope}[every node/.append style={font=\bfseries\itshape\px{31}}, line width=1.6pt]
+    \node at (17.43,-4.42) {Sufficient Moment};
+    \node at (17.43,-7.58) {Transcendental Moment};
+    \node at (17.43,-10.7) {A Prioristic Moment};
+    \draw[lleno] (17.43,-4.9) -- (17.43,-7.2);
+    \draw[lleno] (17.43,-8.07) -- (17.43,-10.3);
+  \end{scope}
+\end{tikzpicture}
+\end{document}

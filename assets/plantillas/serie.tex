@@ -1,0 +1,17 @@
+% Serie temporal u ordinal: una sucesión, una cesura que la parte y los retornos entre
+% series (`retorno`, arco punteado de doble punta entre regiones lejanas). Una llave
+% rayada nombra la totalidad que la serie forma.
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{30}}]
+  \node[titulo=44] at (4.5,5.9) {Título de la serie};
+  \node[caja, minimum width=2.4cm, minimum height=1.2cm] (n1) at (1,2.6) {Pasado};
+  \node[caja, minimum width=2.4cm, minimum height=1.2cm] (n2) at (4.5,2.6) {Presente};
+  \node[caja futura, minimum width=2.4cm, minimum height=1.2cm] (n3) at (8,2.6) {Futuro};
+  \draw[sucesion larga] (n1) -- node[rotulo=18, above=2pt] {\textit{Sucesión}} (n2);   % e1
+  \draw[sucesion larga] (n2) -- node[rotulo=18, above=2pt] {\textit{Sucesión}} (n3);   % e2
+  \draw[retorno] (n1.north) to[bend left=45] node[rotulo, above] {\textit{Retorno}} (n3.north);  % e3
+  \draw[totalidad virtual] (8.8,1.7) -- node[midway, below=9pt, font=\itshape\px{28}] {Forma pura y vacía} (0.2,1.7);  % g1
+\end{tikzpicture}
+\end{document}

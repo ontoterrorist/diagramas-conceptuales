@@ -1,0 +1,78 @@
+% Hoja de muestras del léxico de relaciones: un trazo por cada estilo semántico de diagrama.sty.
+% Compilar:  python scripts/compilar.py assets/lexico-muestras.tex
+% Sirve para elegir el trazo MIRÁNDOLO, y para comprobar que todos los estilos compilan.
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}
+  % \fila{y}{estilo}{nombre del estilo}{qué relación expresa}
+  \newcommand\fila[4]{%
+    \draw[#2] (0,#1) -- (3.2,#1);
+    \node[anchor=west, font=\ttfamily\px{17}] at (3.6,#1) {#3};
+    \node[anchor=west, font=\px{22}] at (7.4,#1) {#4};}
+  \node[titulo=40, anchor=west] at (0,0.7) {Léxico de relaciones: la forma del trazo lleva el significado};
+
+  \node[nivel=20, anchor=west] at (0,-0.1) {RELACIONES ENTRE NODOS};
+  \fila{-0.7}{derivacion}{derivacion}{Derivación, determinación fuerte, división género→especie}
+  \fila{-1.3}{subsuncion}{subsuncion}{Inclusión, subsunción (el verbo va en la etiqueta: «is subsumed by»)}
+  \fila{-1.9}{sucesion}{sucesion}{Sucesión dentro de una serie, transición (punta hueca)}
+  \fila{-2.5}{sucesion rayada}{sucesion rayada}{Sucesión en una serie ordinal, o con vacilación}
+  \fila{-3.1}{genesis}{genesis}{Génesis, actualización, fuerza que empuja}
+  \fila{-3.7}{genesis hueca}{genesis hueca}{Génesis cuando el resultado es virtual o posible}
+  \fila{-4.3}{virtual}{virtual}{Relación virtual o débil: repetición, encarnación, disfraz, desplazamiento}
+  \fila{-4.9}{operacion}{operacion}{Operación singular del autor: clonación, extracción, contracción}
+  \fila{-5.5}{operacion hueca}{operacion hueca}{Lo mismo, hacia un término que no queda determinado}
+
+  \node[nivel=20, anchor=west] at (0,-6.2) {DOBLE PUNTA: LA FUERZA BAJA CON EL TRAZO};
+  \fila{-6.8}{reciproca}{reciproca}{Reciprocidad, interdependencia (fuerte)}
+  \fila{-7.4}{reciproca rayada}{reciproca rayada}{Correlación (media)}
+  \fila{-8.0}{reciproca debil}{reciproca debil}{Paralelismo, correspondencia (débil)}
+
+  \node[nivel=20, anchor=west] at (0,-8.7) {UNA SOLA PUNTA: NUNCA SIMETRIZAR};
+  \fila{-9.3}{unilateral}{unilateral}{Determina sin ser determinado (determinación en última instancia)}
+  \fila{-9.9}{unilateral fuerte}{unilateral fuerte}{Unilateral cuando el texto la da como derivación}
+
+  \node[nivel=20, anchor=west] at (0,-10.6) {ARCOS ENTRE NIVELES O REGIONES LEJANAS};
+  \draw[paradoja] (0,-11.0) to[bend right=40] (3.2,-11.0);
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-11.3) {paradoja};
+  \node[anchor=west, font=\px{22}] at (7.4,-11.3) {Autorreferencia, paradoja, violación de nivel};
+  \draw[retroalim] (0,-12.0) to[bend right=40] (3.2,-12.0);
+  \draw[retroalim] (0,-12.0) to[bend right=20] (3.2,-12.0);
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-12.3) {retroalim};
+  \node[anchor=west, font=\px{22}] at (7.4,-12.3) {Retroalimentación: un nivel superior reelabora los inferiores (haz de arcos)};
+  \fila{-12.9}{retorno}{retorno}{Retorno, rechazo, metamorfosis entre series (doble punta punteada)}
+  \fila{-13.5}{anulacion}{anulacion}{Anulación o exclusión (se rotula «Cancelled» o se tacha)}
+  \tachar{(1.6,-13.5)}
+
+  \node[nivel=20, anchor=west] at (0,-14.2) {EJES Y TOTALIDADES};
+  \fila{-14.8}{eje}{eje}{Orientación o gradiente global, al margen y rotulado}
+  \fila{-15.4}{eje virtual}{eje virtual}{Eje virtual o tendencial}
+  \draw[totalidad] (0,-16.3) -- (3.2,-16.3);
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-16.0) {totalidad};
+  \node[anchor=west, font=\px{22}] at (7.4,-16.0) {Totalidad definicional (llave sólida)};
+  \draw[totalidad virtual] (0,-17.0) -- (3.2,-17.0);
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-16.7) {totalidad virtual};
+  \node[anchor=west, font=\px{22}] at (7.4,-16.7) {Totalidad virtual (llave rayada)};
+  \draw[totalidad abierta] (0,-17.7) -- (3.2,-17.7);
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-17.4) {totalidad abierta};
+  \node[anchor=west, font=\px{22}] at (7.4,-17.4) {Totalidad abierta o indefinida (llave punteada)};
+
+  \node[nivel=20, anchor=west] at (0,-18.2) {EL CONTORNO DEL NODO CODIFICA EL ESTATUS ONTOLÓGICO};
+  \node[caja, minimum width=3.2cm, minimum height=0.8cm, anchor=west] at (0,-19.0) {Actual};
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-19.0) {caja};
+  \node[anchor=west, font=\px{22}] at (7.4,-19.0) {Actual, determinado};
+  \node[caja virtual, minimum width=3.2cm, minimum height=0.8cm, anchor=west] at (0,-20.0) {Virtual};
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-20.0) {caja virtual};
+  \node[anchor=west, font=\px{22}] at (7.4,-20.0) {Virtual, indeterminado};
+  \node[caja abierta, minimum width=3.2cm, minimum height=0.8cm, anchor=west] at (0,-21.0) {Incognoscible};
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-21.0) {caja abierta};
+  \node[anchor=west, font=\px{22}] at (7.4,-21.0) {Incognoscible, contraparte, cosa en sí};
+  \node[caja futura, minimum width=3.2cm, minimum height=0.8cm, anchor=west] at (0,-22.0) {Futuro};
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-22.0) {caja futura};
+  \node[anchor=west, font=\px{22}] at (7.4,-22.0) {Lo que aún no es};
+  \node[caja, interp, minimum width=3.2cm, minimum height=0.8cm, anchor=west] at (0,-23.0) {Lectura\interpretativo};
+  \node[anchor=west, font=\ttfamily\px{17}] at (3.6,-23.0) {interp  +  \textbackslash interpretativo};
+  \node[anchor=west, font=\px{22}] at (7.4,-23.0) {Decisión del diagramador, no del texto: gris claro y †};
+  \nota{0,-23.8}{\interpretativo{} Lectura del diagramador: lo que el texto no dice con estas palabras. Se explica aquí, al pie.}
+\end{tikzpicture}
+\end{document}

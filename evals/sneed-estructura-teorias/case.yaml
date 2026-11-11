@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: sneed-estructura-teorias
+expected_outcome: |
+  A TikZ diagram, compiled to PDF and PNG, with strata or a tree by approach (received view, semantic view, structuralist view) and the formal tuples quoted exactly: the structuralist view as <K, I> (structural core and domain of intended applications), the received view with its language, vocabularies, postulates and correspondence rules. Fidelity book present. Compare with corpus diagrams 29, 32 and 35.

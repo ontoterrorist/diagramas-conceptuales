@@ -1,0 +1,22 @@
+% Plantilla base: esqueleto con título, subtítulo, leyenda y nota al pie.
+% Convención de ids para poder cotejar con fidelidad.md:
+%   nodos  \node (n1) ...        aristas  \draw[...] (n1) -- (n2);  % e1
+%   totalidades  % g1            ejes/orientaciones  % x1
+% Elige el estilo de cada arista por la RELACIÓN que dice el texto (references/lexico.md).
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{diagrama}
+\begin{document}
+\begin{tikzpicture}
+  \node[titulo=46] at (4,6.2) {Título: la tesis del texto};
+  \node[subtitulo=30] at (4,5.6) {Autor, \textit{Obra}, capítulo o sección};
+
+  \node (n1) at (1.5,4) {Término A};
+  \node (n2) at (6.5,4) {Término B\interpretativo};
+  \draw[genesis] (n1) -- node[rotulo] {\textit{Nombre de la relación}} (n2);  % e1
+
+  % Leyenda mínima: solo si hay más de tres tipos de trazo y las aristas no llevan su nombre
+  \muestra{genesis}{0.2}{0.2}{génesis}
+  \muestra{unilateral}{3.4}{0.2}{unilateral}
+  \nota{0,-0.5}{\interpretativo{} Lectura del diagramador: lo que el texto no dice con estas palabras.}
+\end{tikzpicture}
+\end{document}

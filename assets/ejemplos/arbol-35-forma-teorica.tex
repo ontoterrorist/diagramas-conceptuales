@@ -1,0 +1,60 @@
+% Theoretical Form
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  rot/.style={font=\bfseries\px{#1}, inner ysep=0.36cm},
+  forma/.style={font=\px{15}, inner ysep=0.30cm},
+  linea/.style={line width=1.4pt},
+}
+% \lente{nodo}{semiancho}{alto}: arco ⌢ arriba y ⌣ abajo del rótulo
+\newcommand\lente[3]{%
+  \draw[linea] ([shift={(-#2,#3)}]#1.north) .. controls ([shift={(-0.6*#2,-#3/3)}]#1.north)
+    and ([shift={(0.6*#2,-#3/3)}]#1.north) .. ([shift={(#2,#3)}]#1.north);
+  \draw[linea] ([shift={(-#2,-#3)}]#1.south) .. controls ([shift={(-0.6*#2,#3/3)}]#1.south)
+    and ([shift={(0.6*#2,#3/3)}]#1.south) .. ([shift={(#2,-#3)}]#1.south);}
+
+\node[rot=38, inner ysep=0.42cm] (tf) at (6.19,0.46) {Theoretical Form};
+\node[rot=24] (log) at (4.47,2.31) {Logical};
+\node[rot=24] (sci) at (7.22,2.31) {Scientific};
+\node[rot=24] (str) at (11.14,2.31) {Structural};
+\node[rot=17] (rv) at (5.63,3.31) {The Received View};
+\node[rot=17] (sem) at (8.39,3.31) {Semantic};
+\node[rot=15] (ce) at (7.93,4.41) {Constructive\\Empiricism};
+\node[rot=15] (sl) at (9.16,4.40) {Structuralist};
+\node[forma] (t1) at (2.36,3.81) {\textbf{T: <L(T), A, R)>}\\<Language-expressions, axioms, relations>};
+\node[forma] (t2) at (2.40,5.98) {\textbf{T: <L, V, T, C>}\\<FOL, Vocabularies, T-postulates, correspondence rules>};
+\node[forma] (t3) at (6.97,5.98) {\textbf{T: <St, m>}\\<set-theoretical predicate structure, domain-model>};
+\node[forma] (t4) at (11.17,5.98) {\textbf{T: <K, I>}\\<structural core, domain of intended application>};
+\node[forma] (t5) at (11.93,3.82) {\textbf{T: <S, U>}\\<structure, universe of discourse>};
+
+\lente{tf}{0.55}{0.15}
+\foreach \n in {log, sci, str, rv, sem, ce, sl} {\lente{\n}{0.30}{0.12}}
+\foreach \n in {t1, t2, t3, t4, t5} {\lente{\n}{0.42}{0.10}}
+
+% árbol
+\draw[linea] (tf.south) -- (6.19,1.80);
+\draw[linea] (4.47,1.80) -- (11.14,1.80);
+\foreach \n in {log, sci, str} {\draw[linea] (\n.north |- 0,1.80) -- (\n.north);}
+\draw[linea] (sci.south) -- (7.22,2.79);
+\draw[linea] (5.63,2.79) -- (8.39,2.79);
+\foreach \n in {rv, sem} {\draw[linea] (\n.north |- 0,2.79) -- (\n.north);}
+\draw[linea] (sem.south) -- (8.39,3.89);
+\draw[linea] (7.93,3.89) -- (9.16,3.89);
+\draw[linea] (7.93,3.89) -- (ce.north);
+\draw[linea] (9.16,3.89) -- (sl.north);
+
+% hacia las formas
+\draw[linea] (log.south) -- (4.47,3.48) -- (3.17,3.48);
+\draw[linea] (rv.south) -- (5.63,5.74) -- (3.55,5.74);
+\draw[linea] (ce.south) -- (7.93,5.74) -- (7.78,5.74);
+\draw[linea] (sl.south) -- (9.16,5.64) -- (10.36,5.64);
+\draw[linea] (str.south) -- (11.14,3.48) -- (11.29,3.48);
+
+% sucesión de formas
+\draw[puntos, lleno] (log.east) -- (sci.west);
+\draw[puntos, lleno] (sci.east) -- (str.west);
+\draw[puntos] (sl.east) -- (10.02,4.40) -- (10.02,2.31);
+\end{tikzpicture}
+\end{document}

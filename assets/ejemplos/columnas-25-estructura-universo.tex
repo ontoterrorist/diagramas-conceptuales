@@ -1,0 +1,41 @@
+% Dimension of Structure and Universe of Discourse
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img, font=\sffamily]
+\tikzset{
+  sb/.style={font=\sffamily\bfseries\px{#1}},
+  circ/.style={line width=1.7pt},
+  flecha2/.style={line width=1.5pt, {Triangle[open,length=4.4mm,width=3.6mm]}-{Triangle[open,length=4.4mm,width=3.6mm]}},
+}
+\node[sb=24] at (9.31,0.82) {Interdependency};
+\draw[line width=2.6pt, dash pattern=on 9pt off 5pt,
+      {Triangle[open,length=5mm,width=4.2mm,line width=1.6pt]}-{Triangle[open,length=5mm,width=4.2mm,line width=1.6pt]}]
+  (5.15,2.92) .. controls (5.40,-0.50) and (13.53,-0.50) .. (13.78,2.92);
+
+\node[sb=30] at (5.13,3.43) {Dimension of\\Structure (S)};
+\node[sb=30] at (13.80,3.43) {Universe of\\Discourse (U)};
+
+\draw[puntos] (5.13,4.00) .. controls (5.00,5.30) and (2.10,4.90) .. (2.09,6.08);
+\draw[puntos] (5.13,4.00) .. controls (5.30,5.30) and (7.90,4.90) .. (7.95,6.08);
+\draw[puntos] (13.80,4.00) -- (13.80,6.08);
+
+\draw[circ] (2.09,7.40) ellipse (1.47 and 1.32);
+\draw[circ] (7.95,7.40) ellipse (1.47 and 1.32);
+\draw[circ] (13.80,7.40) ellipse (1.47 and 1.32);
+\node[font=\sffamily\px{21}] at (2.09,7.38) {\textbf{Formal Structures}\\(S = E, R)};
+\node[font=\sffamily\px{21}] at (7.95,7.38) {\textbf{Semantic Structures}\\(Primary Propositions)};
+\node[font=\sffamily\px{21}] at (13.80,7.38) {\textbf{Ontological Structures}\\(Primary Facts)};
+
+\draw[flecha2] (3.58,7.40) -- (6.45,7.40);
+\draw[flecha2] (9.45,7.40) -- (12.30,7.40);
+\node[sb=22] at (5.07,6.92) {Linguistic\\Interpretation};
+\node[sb=22] at (10.89,6.92) {Ontological\\Correspondence};
+
+\draw[puntitos] (2.09,8.72) -- (2.09,9.70);
+\draw[puntitos] (7.95,8.72) -- (7.95,9.22) -- (13.80,9.22) -- (13.80,8.72);
+\draw[puntitos] (10.75,9.22) -- (10.75,9.70);
+\node[sb=30] at (2.09,10.22) {Abstract\\Structures};
+\node[sb=30] at (10.75,10.22) {Contentual\\Structures};
+\end{tikzpicture}
+\end{document}

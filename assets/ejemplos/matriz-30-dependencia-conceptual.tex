@@ -1,0 +1,50 @@
+% Conceptual Dependency and Homomorphic Embedding
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  c/.style={font=\px{19}},
+  gruesa/.style={line width=3.6pt, -{Triangle[length=3.4mm,width=4.4mm]}},
+  vert/.style={line cap=round, dash pattern=on 0pt off 4.4pt, line width=2.4pt,
+    -{Latex[length=3.2mm,width=3mm]}},
+  nivel/.style={font=\bfseries\px{21}, anchor=west, align=center},
+}
+% estructural (pensar)
+\node[c] at (1.25,0.73) {Locators\\(Index)};
+\node[c] at (3.80,0.73) {Data Model};
+\node[c] at (6.70,0.73) {Empirical Substructures\\(Formal Modality)};
+\node[c] at (9.55,0.73) {Theories\\(Axiomatic/Networks)};
+\node[c] at (12.40,0.73) {General Ontology\\(Theory of Theories)};
+% funcional (hacer)
+\node[c] at (1.25,1.95) {Labeling};
+\node[c] at (3.80,1.95) {Describing /\\Explaining};
+\node[c] at (6.70,1.95) {Formal\\Reasoning};
+\node[c] at (9.55,1.95) {Theorization};
+\node[c] at (12.40,1.95) {Systematization};
+% ontológica (ser)
+\node[c] at (1.13,3.42) {Real Patterns};
+\node[c] at (3.80,3.42) {Extensional Relations};
+\node[c] at (6.72,3.47) {Intensional/Modal Relations\\(Objective Modality)};
+\node[c] at (9.55,3.42) {Domain-System};
+\node[c] at (12.40,3.42) {World};
+
+\foreach \x in {1.25, 3.80, 6.70, 9.55, 12.40} {
+  \draw[vert] (\x,1.72) -- (\x,1.00);
+  \draw[vert] (\x,2.25) -- (\x,3.08);
+}
+\foreach \y in {0.63, 1.95, 3.42} {
+  \foreach \a/\b in {1.88/2.58, 4.92/5.60, 7.90/8.60, 10.65/11.33}
+    {\draw[gruesa] (\a,\y) -- (\b,\y);}
+}
+
+\node[font=\bfseries\px{32}, rotate=90] at (0.12,1.95) {Conceptual\enspace Dependency};
+\node[font=\bfseries\px{30}] at (6.63,4.13) {Homomorphic Embedding};
+
+\draw[puntos] (13.18,0.55) -- (13.30,0.55) -- (13.30,3.72) -- (13.18,3.72);
+\draw[line width=1pt] (13.30,1.95) .. controls (13.36,1.90) and (13.40,2.00) .. (13.46,1.95);
+\node[nivel] at (13.62,0.60) {STRUCTURAL\\(THINKING)};
+\node[nivel] at (13.62,2.03) {FUNCTIONAL\\(DOING)};
+\node[nivel] at (13.62,3.52) {ONTOLOGICAL\\(BEING)};
+\end{tikzpicture}
+\end{document}

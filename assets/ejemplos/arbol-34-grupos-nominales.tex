@@ -1,0 +1,46 @@
+% Noun groups and categorical inferences
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  mayus/.style={font=\bfseries\px{22}, anchor=west},
+  pal/.style={font=\px{26}},
+  palb/.style={font=\bfseries\px{27}},
+  peq/.style={font=\bfseries\px{13}},
+  baja/.style={line width=1.1pt, -{Latex[length=3.2mm,width=2.6mm]}},
+  doble/.style={puntitos, line width=1.6pt, {Latex[length=3mm,width=2.6mm]}-{Latex[length=3mm,width=2.6mm]}},
+}
+\node[palb] at (3.76,0.83) {Thing};  \node[palb] at (4.50,0.83) {/};
+\node[palb] at (5.50,0.83) {Event};  \node[palb] at (6.32,0.83) {/};
+\node[palb] at (7.15,0.83) {Person};
+\node[pal] at (3.72,2.25) {Car};     \node[pal] at (4.29,2.25) {/};
+\node[pal] at (5.32,2.25) {Explosion}; \node[pal] at (6.32,2.25) {/};
+\node[pal] at (7.08,2.25) {Man};
+\node[pal] at (3.86,3.68) {Ford};    \node[pal] at (4.35,3.68) {/};
+\node[pal] at (5.38,3.68) {Gas Explosion}; \node[pal] at (6.41,3.68) {/};
+\node[pal] at (7.25,3.68) {Male Punk};
+\foreach \x in {3.76, 5.53, 7.17} {
+  \draw[baja] (\x,1.10) -- (\x,1.98);
+  \draw[baja] (\x,2.52) -- (\x,3.40);
+}
+
+\draw[puntitos, line width=1.4pt, {Straight Barb[length=2.4mm,width=3.2mm]}-{Straight Barb[length=2.4mm,width=3.2mm]}]
+  (2.98,0.50) -- (2.98,4.05);
+\fill (2.98,2.25) circle (0.07);
+\node[font=\bfseries\px{24}, anchor=east] at (2.86,2.25) {NOUN GROUPS};
+\node[peq] at (2.22,1.33) {Generalization};
+\node[peq] at (2.12,3.05) {Specification};
+
+\node[pal] at (8.95,2.25) {\underline{A} is a K};
+\draw[baja, line width=1.2pt] (9.40,2.25) -- (9.85,2.25);
+\node[pal] at (10.41,2.25) {\underline{A} is S};
+\draw[doble] (7.55,2.25) -- (8.30,2.25);
+\draw[doble] (7.58,1.02) -- (8.33,1.98);
+\draw[doble] (7.60,3.48) -- (8.33,2.52);
+
+\node[mayus] at (11.21,0.83) {ULTIMATE GENERA};
+\node[mayus] at (11.21,2.25) {CATEGORICAL INFERENCES};
+\node[mayus] at (11.21,3.68) {LOWERMOST NODES};
+\end{tikzpicture}
+\end{document}

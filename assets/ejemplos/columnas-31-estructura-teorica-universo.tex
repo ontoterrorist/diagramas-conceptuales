@@ -1,0 +1,45 @@
+% Theoretical Structure S and Universe of Discourse U
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  cab/.style={font=\bfseries\px{20}},
+  dentro/.style={font=\px{20}},
+  cuadro/.style={draw, line width=1.3pt, minimum size=0.45*1.6cm, inner sep=0pt, font=\px{13}},
+  doble/.style={puntitos, line width=1.4pt, {Latex[length=2.4mm,width=2mm]}-{Latex[length=2.4mm,width=2mm]}},
+  gruesa/.style={line width=2.4pt, -{Latex[length=5mm,width=4mm]}},
+}
+\node[cab] at (5.68,0.30) {Structures\\(Formal)};
+\node[cab] at (7.75,0.30) {Sentences\\(Linguistic)};
+\node[cab] at (8.92,0.30) {Propositions\\(Semantic)};
+\node[cab] at (11.05,0.30) {Facts\\(Ontological)};
+
+\foreach \y/\iz/\de/\s/\p in {
+  1.48/Mathematical\\Structures\\MS1/Mathematical\\Primary Facts\\MF1/Mst1/Pm1,
+  3.75/Semantic\\Structures\\SS1/Semantic\\Primary Facts\\SF1/Sst1/Ps1,
+  6.03/Ontological\\Structures\\OS1/Ontological\\Primary Facts\\OF1/Ost1/Po1} {
+  \draw[line width=2.2pt] (5.68,\y) ellipse (0.98 and 0.90);
+  \node[dentro] at (5.68,\y) {\iz};
+  \draw[line width=2.2pt] (11.05,\y) ellipse (0.98 and 0.90);
+  \node[dentro] at (11.05,\y) {\de};
+  \node[cuadro] at (7.73,\y) {\s};
+  \node[cuadro] at (8.93,\y) {\p};
+  \draw[doble] (6.70,\y) -- (7.42,\y);
+  \draw[doble] (8.00,\y) -- (8.66,\y);
+  \draw[doble] (9.20,\y) -- (10.03,\y);
+}
+
+\node[font=\bfseries\px{110}] at (2.55,3.75) {S};
+\node[font=\bfseries\px{38}] at (1.05,3.75) {Theoretical\\Structure};
+\node[font=\bfseries\px{110}] at (14.40,3.75) {U};
+\node[font=\bfseries\px{38}] at (15.95,3.75) {Universe of\\Discourse};
+
+\draw[gruesa] (4.65,1.45) -- (2.90,3.22);
+\draw[gruesa] (4.60,3.75) -- (3.05,3.75);
+\draw[gruesa] (4.63,6.05) -- (2.90,4.28);
+\draw[gruesa] (12.18,1.55) -- (13.90,3.28);
+\draw[gruesa] (12.18,3.75) -- (13.92,3.75);
+\draw[gruesa] (12.18,6.15) -- (13.90,4.25);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,64 @@
+% The Cognitive Functional Hierarchy
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img, font=\sffamily]
+\tikzset{
+  caja/.style={draw, line width=1.3pt, font=\sffamily\px{19}, minimum width=#1*1.6cm,
+    minimum height=0.60*1.6cm, inner sep=0pt},
+  caja/.default=1.80,
+  arco/.style={puntitos, line width=1.1pt, -{Latex[length=3.6mm,width=2.8mm]}},
+  et/.style={font=\sffamily\px{15}},
+  nivel/.style={font=\sffamily\px{19}},
+}
+\node[font=\sffamily\bfseries\px{28}] at (4.35,0.73) {The Cognitive Functional Hierarchy};
+
+\node[caja] (lab) at (4.38,1.90) {Labelling};
+\node[caja] (sim) at (4.38,3.10) {Simulation};
+\node[caja] (mat) at (4.38,4.30) {Material Inference};
+\node[caja=1.72] (for) at (4.38,5.50) {Formal Inference};
+\node[caja=1.64] (teo) at (4.38,6.70) {Theorization};
+\node[caja=1.72] (sis) at (4.35,7.90) {Systematization};
+\node[caja=1.66] (eva) at (4.35,9.10) {Evaluation of the\\System};
+\foreach \a/\b in {lab/sim, sim/mat, mat/for, for/teo, teo/sis, sis/eva}
+  \draw[lleno] (\a.south) -- (\b.north);
+
+% explicitación global (desde la sistematización)
+\draw[arco] (sis.west) .. controls (1.05,7.90) and (1.05,1.90) .. (lab.west);
+\draw[arco] (sis.west) .. controls (1.58,7.90) and (1.58,3.10) .. (sim.west);
+\draw[arco] (sis.west) .. controls (2.04,7.90) and (2.04,4.30) .. (mat.west);
+\draw[arco] (sis.west) .. controls (2.55,7.90) and (2.55,5.50) .. (for.west);
+\draw[arco] (sis.west) .. controls (3.04,7.90) and (3.04,6.70) .. (teo.west);
+\draw[arco] (sis.east) .. controls (7.66,7.90) and (7.66,1.90) .. (lab.east);
+\draw[arco] (sis.east) .. controls (7.19,7.90) and (7.19,3.10) .. (sim.east);
+\draw[arco] (sis.east) .. controls (6.86,7.90) and (6.86,4.30) .. (mat.east);
+\draw[arco] (sis.east) .. controls (6.26,7.90) and (6.26,5.50) .. (for.east);
+\draw[arco] (sis.east) .. controls (5.66,7.90) and (5.66,6.70) .. (teo.east);
+\draw[arco] (sis.west) .. controls (3.00,8.20) and (3.00,9.05) .. (eva.west);
+\draw[arco] (sis.east) .. controls (5.70,8.20) and (5.70,9.05) .. (eva.east);
+% explicitación local
+\draw[arco] (for.west) .. controls (3.15,5.45) and (3.10,4.55) .. ([yshift=-0.12cm]mat.west);
+\draw[arco] (for.east) .. controls (5.62,5.45) and (5.68,4.55) .. ([yshift=-0.12cm]mat.east);
+\node[et] at (2.85,5.40) {Local\\Explicitation};
+\node[et] at (5.90,5.40) {Local\\Explicitation};
+\node[et] at (2.40,7.92) {Global\\Explicitation};
+\node[et] at (6.30,7.92) {Global\\Explicitation};
+
+% incrustación funcional
+\draw[line cap=round, dash pattern=on 0pt off 6.9pt, line width=2.4pt] (1.40,1.60) -- (1.40,9.05);
+\fill (1.40,9.42) -- (1.29,9.08) -- (1.51,9.08) -- cycle;
+\node[font=\sffamily\px{20}] at (0.60,5.48) {Functional\\Embedding};
+
+% niveles de razón
+\draw[puntitos, llave=0.12cm] (7.02,1.60) -- (7.02,2.20);
+\node[nivel, anchor=west] at (7.15,1.88) {RDRD};
+\draw[puntitos, llave=0.30cm] (7.82,1.60) -- (7.82,3.40);
+\node[nivel, anchor=west] at (8.02,2.48) {Sentience};
+\draw[puntitos, llave=0.55cm] (8.90,1.60) -- (8.90,4.60);
+\node[nivel] at (9.80,3.08) {Bound\\Reason};
+\draw[puntitos, llave=1.2cm] (10.05,1.60) -- (10.05,8.20);
+\node[nivel] at (11.50,4.88) {Unbound\\Reason};
+\draw[puntitos, llave=1.2cm] (11.95,1.60) -- (11.95,9.40);
+\node[nivel] at (13.43,5.48) {Natural\\Reason};
+\end{tikzpicture}
+\end{document}

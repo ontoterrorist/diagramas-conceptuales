@@ -1,0 +1,85 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=tinta, every node/.append style={font=\px{27}}, line width=0.8pt,
+    llave/.style={line width=0.9pt, decorate, decoration={brace, amplitude=6pt}},
+    combina/.style={line width=0.9pt, -{Triangle[open,length=3.2mm,width=2.6mm]}}]
+  \node[titulo=46] at (8.68,-1.18) {THE SYNTHESES OF SENSIBILITY\\AND UNDERSTANDING};
+  \node[font=\bfseries\itshape\px{44}] at (4.17,-2.88) {Sensibility};
+  \node[font=\bfseries\itshape\px{44}] at (13.07,-2.88) {Understanding};
+
+  \begin{scope}[every node/.append style={font=\bfseries\px{25}}]
+    \node at (1.87,-4.65) {SYNOPSES OF\\SENSIBILITY};
+    \node at (2.1,-11.98) {FORMS OF\\INTUITION};
+    \node[font=\bfseries\itshape\px{21}] at (2.1,-12.43) {(Transcendental Aesthetic)};
+    \node at (2.1,-14.25) {FORM OF\\EXISTENCE};
+  \end{scope}
+
+  % Sensibilidad
+  \node at (4.17,-4.66) {Sensory Manifold};
+  \node at (4.17,-5.95) {Image-Profile};
+  \node at (4.17,-7.13) {Image-Model};
+  \node at (4.17,-8.3) {Individual};
+  \node at (4.17,-9.47) {Object\\("X")};
+  \draw[lleno] (4.17,-4.92) -- (4.17,-5.62);
+  \draw[lleno] (4.17,-6.25) -- (4.17,-6.92);
+  \draw[lleno] (4.17,-7.4) -- (4.17,-8.07);
+  \draw[lleno] (4.17,-8.55) -- (4.17,-9.22);
+  \draw[puntos, lleno] (4.17,-9.88) -- (4.17,-10.75);
+
+  % Entendimiento
+  \node at (13.08,-5.95) {Apprehension};
+  \node at (13.08,-7.13) {Imagination};
+  \node at (13.08,-8.3) {Recognition};
+  \node at (13.08,-9.53) {Subject\\("I think")};
+  \draw[lleno] (13.08,-6.22) -- (13.08,-6.82);
+  \draw[lleno] (13.08,-7.38) -- (13.08,-8.07);
+  \draw[lleno] (13.08,-8.55) -- (13.08,-9.22);
+  \draw[puntos, lleno] (13.08,-9.95) -- (13.08,-10.75);
+
+  % Síntesis
+  \foreach \y in {-5.97,-7.15,-8.32,-9.5} \draw[puntos, llenos] (5.9,\y) -- (11.65,\y);
+  \node[font=\bfseries\px{25}] at (8.6,-5.36) {SYNTHESIS};
+  \node[font=\bfseries\itshape\px{20}] at (8.6,-5.65) {(Transcendental Deduction)};
+  \node[font=\bfseries\px{20}] at (8.78,-9.8) {Transcendental Unity of Apperception};
+
+  % Formas de la intuición y de la existencia
+  \node[font=\bfseries\px{27}] at (4.22,-11.52) {Space};
+  \node[font=\itshape\px{17}] at (4.22,-11.79) {(Geometry)};
+  \node[font=\bfseries\px{27}] at (4.22,-12.48) {Time};
+  \node[font=\itshape\px{17}] at (4.22,-12.76) {(Arithmetic)};
+  \node[font=\bfseries\px{27}] at (4.22,-14.26) {Position};
+  \draw[rayas, lleno] (8.62,-11.62) -- (5.62,-11.62);
+  \draw[rayas, lleno] (8.62,-12.51) -- (5.62,-12.51);
+  \draw[rayas, lleno] (6.72,-14.23) -- (5.67,-14.23);
+  \node[font=\itshape\px{21}] at (7.36,-11.4) {Axioms of Intuition};
+  \node[font=\itshape\px{21}] at (7.36,-12.74) {Anticipations of Perception};
+  \node[font=\bfseries\px{20}] at (7.5,-12.03) {Mathematical};
+  \node[font=\bfseries\px{12}] at (7.5,-12.25) {(Related to Intuition)};
+  \node[font=\bfseries\px{20}] at (7.5,-14.15) {Dynamic};
+  \node[font=\bfseries\px{12}] at (7.5,-14.36) {(Existence)};
+  \draw[llave, puntos, line width=1.1pt] (8.97,-12.95) -- (8.97,-11.05);
+  \draw[llave, puntos, line width=1.1pt] (8.97,-15.25) -- (8.97,-13.27);
+
+  % Categorías
+  \foreach \y/\cat/\a/\b/\c in {
+      -11.65/Quantity/Unity/Plurality/Totality,
+      -12.58/Quality/Reality/Negation/Limitation,
+      -13.67/Relation/{Subsistence /\\Inherence}/{Causality /\\Dependency}/{Reciprocity\\(Community)},
+      -14.92/Modality/{Possibility /\\Impossibility}/{Existence /\\Non-Existence}/{Necessity /\\Contingency}} {
+    \node[font=\bfseries\px{27}] at (9.88,\y) {\cat};
+    \draw[llave] (10.95,\y-0.37) -- (10.95,\y+0.37);
+    \node at (11.95,\y) {\a};
+    \node at (13.08,\y+0.04) {+};
+    \node at (14.2,\y) {\b};
+    \draw[llave] (15.22,\y+0.37) -- (15.22,\y-0.37);
+    \draw[combina] (15.55,\y) -- (17.0,\y);
+    \node[font=\itshape\px{17}] at (16.2,\y+0.15) {Combination};
+    \node at (17.85,\y) {\c};
+  }
+  \node[font=\itshape\px{17}] at (13.09,-11.25) {Dichotomy};
+
+  \node[font=\bfseries\px{25}] at (13.5,-16.18) {CATEGORIES OF THE\\UNDERSTANDING};
+  \node[font=\bfseries\itshape\px{21}] at (13.5,-16.64) {(Transcendental Analytic)};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\itshape\px{27}}]
+  \node[titulo=62] at (9.2,-1.22) {The Philosophical Life as System};
+  \node[font=\itshape\px{40}] at (9.45,-2.25) {The Intelligible};
+  \node[font=\itshape\px{40}] at (9.25,-10.07) {The Visible};
+  \draw[puntitos, line width=1pt, dash pattern=on 0pt off 2pt] (9.48,-6.13) ellipse [x radius=6.42, y radius=3.45];
+
+  \foreach \x/\cab/\a/\b/\c/\d in {
+      5.38/Ontology/{Form of the Good}/{Mathematical Forms}/Objects/Eikones,
+      7.58/Epistemology/Noesis/Dianoia/Pistis/Eikasia,
+      9.46/Aesthetics/Gods/Poet/Rhapsode/Audience,
+      11.22/Politics/Dialectics/Mathematics/{Military Training}/{Early Formation},
+      13.63/Love/{Form of the Beautiful}/{Beautiful Knowledge}/{Beautiful Souls/Institutions}/{Beautiful Bodies}} {
+    \node[font=\bfseries\itshape\px{28}] at (\x,-4.95) {\cab};
+    \node at (\x,-5.47) {\a};
+    \node at (\x,-5.97) {\b};
+    \node at (\x,-6.47) {\c};
+    \node at (\x,-6.97) {\d};
+  }
+
+  \node[font=\bfseries\itshape\px{40}] at (16.55,-2.25) {Death};
+  \node[font=\bfseries\itshape\px{40}] at (16.4,-10.07) {Life};
+  \draw[line width=2pt, dash pattern=on 14pt off 5pt on 2pt off 5pt, -{Latex[length=5mm,width=3.6mm]}] (16.4,-9.6) -- (16.4,-2.85);
+  \node[font=\itshape\px{34}] at (17.27,-6.0) {Catharsis};
+\end{tikzpicture}
+\end{document}

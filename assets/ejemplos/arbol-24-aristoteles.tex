@@ -1,0 +1,62 @@
+% Difference in Aristotle's Representational Framework
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  caja/.style={draw, rounded corners=5pt, line width=1.5pt, font=\px{28},
+    minimum width=#1*1.6cm, minimum height=0.46*1.6cm, inner sep=0pt},
+  caja/.default=1.45,
+  rama/.style={line width=1.5pt, rounded corners=6pt, -{Latex[length=3.6mm,width=3mm]}},
+  hoja/.style={font=\px{28}},
+  puntosp/.style={font=\px{40}},
+  nivel/.style={font=\bfseries\px{22}, anchor=west, align=left},
+}
+\node[titulo=40] at (10.02,0.50) {Difference in Aristotle's Representational Framework};
+
+\node[caja] (quality)  at (10.02,2.17) {Quality};
+\node[caja] (quantity) at (16.70,2.17) {Quantity};
+\node[caja] (animal)   at (6.20,3.40) {Animal};
+\node[caja] (plant)    at (14.32,3.40) {Plant};
+\node[caja=1.68] (wings) at (2.97,4.82) {With Wings};
+\node[caja=1.68] (feet)  at (9.42,4.82) {With Feet};
+\tikzset{caja/.append style={minimum height=0.38*1.6cm}}
+\node[caja=1.68] (bat)    at (1.55,5.88) {Bat};
+\node[caja=1.68] (dove)   at (4.41,5.88) {Dove};
+\node[caja=1.68] (man)    at (8.22,5.88) {Man};
+\node[caja=1.68] (baboon) at (10.85,5.88) {Baboon};
+
+% ramificaciones: padre, altura del travesaño, hijos
+\newcommand\ramas[4]{%
+  \draw[line width=1.5pt] (#1.south) -- (#1.south |- 0,#2);
+  \draw[rama] (#1.south |- 0,#2) -| (#3);
+  \draw[rama] (#1.south |- 0,#2) -| (#4);}
+\ramas{quality}{2.81}{animal.north}{plant.north}
+\ramas{animal}{4.08}{wings.north}{feet.north}
+\ramas{wings}{5.40}{bat.north}{dove.north}
+\ramas{feet}{5.40}{man.north}{baboon.north}
+\ramas{bat}{6.40}{0.88,6.72}{2.15,6.72}
+\ramas{dove}{6.40}{3.70,6.72}{5.13,6.72}
+\ramas{man}{6.40}{7.73,6.72}{8.70,6.72}
+\ramas{baboon}{6.40}{10.13,6.72}{11.57,6.72}
+\draw[rama] (quantity.south) -- (16.70,2.90);
+\draw[rama] (plant.south) -- (14.32,4.12);
+
+\foreach \x/\t in {0.82/Bat 1, 2.14/Bat 2, 3.69/Dove 1, 5.12/Dove 2,
+                   7.69/Man 1, 8.71/Man 2, 10.13/Baboon 1, 11.57/Baboon 2}
+  \node[hoja] at (\x,6.92) {\t};
+\foreach \x/\y in {13.35/2.17, 16.70/3.15, 10.15/3.35, 14.32/4.38, 6.20/4.85, 2.97/5.90, 9.54/5.90}
+  \node[puntosp] at (\x,\y) {\dots};
+
+% niveles
+\draw[rayas] (17.65,1.80) -- (17.72,1.82) -- (17.72,3.58) -- (17.65,3.60)
+  (17.72,2.70) -- (17.80,2.70);
+\node[nivel] at (17.98,2.70) {GENERIC\\DIFFERENCE};
+\draw[rayas] (12.90,4.58) -- (12.97,4.60) -- (12.97,6.05) -- (12.90,6.07)
+  (12.97,5.32) -- (13.05,5.32);
+\node[nivel] at (13.15,5.32) {SPECIFIC\\DIFFERENCE};
+\draw[rayas] (12.90,6.60) -- (12.97,6.62) -- (12.97,7.13) -- (12.90,7.15)
+  (12.97,6.87) -- (13.05,6.87);
+\node[nivel] at (13.10,6.87) {PERCEPTUAL\\RESEMBLANCES};
+\end{tikzpicture}
+\end{document}

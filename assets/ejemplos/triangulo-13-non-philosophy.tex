@@ -1,0 +1,45 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=gris, every node/.append style={font=\px{27}, text=tinta}, line width=0.9pt,
+    negrita/.style={font=\bfseries\px{17}},
+    chico/.style={font=\px{17}},
+    rotulo/.style={etq, font=\itshape\px{14}},
+    rp/.style={dash pattern=on 6pt off 3pt on 1pt off 3pt},
+    etapa/.style={puntitos, line width=1pt, -{Straight Barb[length=2.6mm,width=4.4mm]}}]
+  \node[titulo=32] at (6.67,-0.62) {Non-Philosophy};
+
+  \node at (1.45,-1.85) {One};
+  \node[negrita] at (1.45,-2.09) {Real};
+  \node at (6.42,-1.85) {Clone};
+  \node[negrita] at (6.42,-2.09) {Transcendental Identity};
+  \draw[puntitos, lleno] (2.1,-1.98) -- (5.45,-1.98);
+  \node[rotulo] at (3.95,-1.98) {Extraction};
+  \node[font=\itshape\px{22}] at (3.9,-2.83) {Cloning};
+  \node[font=\itshape\px{22}] at (7.6,-2.85) {Unilateralization};
+  \draw[puntitos] (1.45,-2.28) -- (1.45,-3.78);
+
+  \node at (1.45,-4.03) {X};
+  \node[negrita] at (1.45,-4.27) {Occassional Cause};
+  \node[chico] at (1.45,-4.56) {(Transcendental/Empirical term\\from Philosophy/Science)};
+  \draw[rp, hueco] (2.3,-4.05) -- (5.45,-4.05);
+  \node[rotulo] at (3.95,-4.05) {Reduction};
+  \node at (5.67,-4.03) {E\raisebox{-0.3ex}{\px{17}x}};
+  \node[negrita] at (5.67,-4.27) {Empirical Support};
+  \node[chico] at (5.67,-4.52) {(Demotion of X )};
+  \draw[rp, hueco] (7.4,-4.05) -- (5.87,-4.05);
+  \node[rotulo] at (6.73,-4.05) {Conditioning};
+  \node[font=\itshape\px{27}] at (7.93,-4.03) {A Priori};
+  \node[negrita] at (7.85,-4.27) {Pure Principle};
+  \node[chico] at (7.85,-4.52) {(Extracted by Clone from E\raisebox{-0.3ex}{\px{12}x})};
+  \draw[rp] (6.82,-2.32) -- (5.85,-3.88);
+  \draw[rp, hueco] (7.28,-2.32) -- (8.05,-3.62);
+
+  % Etapas
+  \draw[etapa] (0.62,-5.1) -- (0.18,-5.1) -- (0.18,-1.27) -- (2.7,-1.27);
+  \draw[etapa] (5.0,-1.27) -- (9.5,-1.27) -- (9.5,-2.67);
+  \node[font=\itshape\px{18}] at (4.12,-1.14) {Second Stage:\\Transcendental};
+  \node[font=\itshape\px{18}, align=left, anchor=west] at (9.42,-3.06) {Third Stage:\\A Prioristic};
+  \node[font=\itshape\px{18}, align=left, anchor=west] at (1.05,-5.3) {First Stage:\\Spontaneous-Sufficient};
+\end{tikzpicture}
+\end{document}

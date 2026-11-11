@@ -1,0 +1,23 @@
+% Árbol de división (género → especie). Cada nivel baja con `derivacion`; los niveles
+% se nombran al margen en versalitas. Riesgo: imponer jerarquía donde el texto ve red.
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{30}}]
+  \node[titulo=44] at (3,5.2) {Título del árbol};
+  \node (n1) at (3,4)   {Género};
+  \node (n2) at (1,2.4) {Especie A};
+  \node (n3) at (5,2.4) {Especie B};
+  \node (n4) at (0,0.8) {Subespecie A1};
+  \node (n5) at (2,0.8) {Subespecie A2};
+  \node (n6) at (5,0.8) {\dots};
+  % ramas: travesaño a media altura, cae a cada hijo (|- y -| dan los codos)
+  \draw[derivacion, rounded corners=6pt] (n1.south) |- (3,3.2) -| (n2.north);   % e1
+  \draw[derivacion, rounded corners=6pt] (n1.south) |- (3,3.2) -| (n3.north);   % e2
+  \draw[derivacion, rounded corners=6pt] (n2.south) |- (1,1.6) -| (n4.north);   % e3
+  \draw[derivacion, rounded corners=6pt] (n2.south) |- (1,1.6) -| (n5.north);   % e4
+  \draw[derivacion] (n3.south) -- (n6.north);                                   % e5
+  \node[nivel=20] at (6.6,4)   {DIFERENCIA\\GENÉRICA};
+  \node[nivel=20] at (6.6,2.4) {DIFERENCIA\\ESPECÍFICA};
+\end{tikzpicture}
+\end{document}

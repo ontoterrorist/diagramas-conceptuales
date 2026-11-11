@@ -1,0 +1,46 @@
+% Structuralist view: structural core K and intended applications I
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  borde/.style={line width=2pt},
+  doble/.style={puntitos, line width=1.3pt, {Latex[length=2.6mm,width=2.2mm]}-{Latex[length=2.6mm,width=2.2mm]}},
+  una/.style={puntitos, line width=1.3pt, -{Latex[length=2.6mm,width=2.2mm]}},
+  chico/.style={draw, puntitos, circle, minimum size=0.22*1.6cm, inner sep=0pt, font=\px{14}},
+}
+% teoría de conjuntos ingenua (arriba) y núcleo estructural (abajo), abiertas por el cuello
+\draw[borde] (2.52,1.19) ++(120:1.01) arc[start angle=120, end angle=420, radius=1.01];
+\draw[borde] (2.51,3.25) ++(300:0.95) arc[start angle=300, end angle=600, radius=0.95];
+\draw[borde, dash pattern=on 9pt off 6pt] (2.05,1.92) .. controls (2.35,2.05) and (2.70,2.05) .. (3.00,1.92);
+\draw[borde, dash pattern=on 9pt off 6pt] (2.05,2.42) .. controls (2.35,2.29) and (2.70,2.29) .. (3.00,2.42);
+
+\node[font=\px{30}] at (0.77,0.95) {Naive\\Set Theory};
+\node[font=\px{20}] at (2.53,0.63) {Set-Theoretical\\Predicates};
+\draw[line width=1.1pt] (2.47,1.21) ellipse (0.82 and 0.20) node[font=\px{20}] {P1};
+\foreach \x in {2.03, 2.50, 2.90}
+  {\draw[doble] (\x,1.51) -- (\x,2.69);}
+\draw[line width=1.1pt] (2.47,3.04) ellipse (0.77 and 0.20) node[font=\px{20}] {Mp\enspace M\enspace Mpp};
+\node[font=\px{20}] at (2.46,3.51) {Collection of Models};
+\node[font=\bfseries\px{26}] at (2.52,4.43) {K};
+\node[font=\px{27}] at (2.49,4.86) {Structural\\Core};
+
+% dominio de aplicaciones
+\draw[borde] (5.43,3.20) circle (1.01);
+\draw[line width=1.1pt] (5.39,3.03) ellipse (0.78 and 0.20) node[font=\px{27}] {I1\enspace I2\enspace I3};
+\node[font=\bfseries\px{26}] at (5.43,4.40) {I};
+\node[font=\px{27}] at (5.49,4.86) {Domain of Intended\\Application};
+
+% restricciones, vínculos, aproximación
+\node[chico] (C) at (3.65,2.81) {C};
+\node[chico] (L) at (3.96,2.81) {L};
+\node[chico] (A) at (4.27,2.81) {A};
+\draw[una] (C.west) -- (3.33,2.81);
+\draw[doble] (3.40,3.07) -- (4.50,3.07);
+\node[font=\bfseries\px{11}] at (3.98,3.21) {constraints / blurs};
+\draw[una] (L.north) -- (3.96,1.42);
+\draw[line width=1.3pt] (3.97,1.04) circle (0.28) node[font=\px{13}] {External\\Theories};
+\draw[una] (A.north) -- (4.29,2.33);
+\draw[line width=1.6pt] (4.32,1.99) circle (0.29) node[font=\px{12}] {Uniformity};
+\end{tikzpicture}
+\end{document}

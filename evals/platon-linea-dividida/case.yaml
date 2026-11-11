@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: platon-linea-dividida
+expected_outcome: |
+  A TikZ diagram, compiled to PDF and PNG, with the line divided into four segments (eikasia, pistis, dianoia, noesis, or the objects they correspond to: images, visible things, mathematical objects, forms), grouped into the visible and the intelligible orders, with the proportion between segments stated as in the text. Fidelity book present. Compare with corpus diagram 05.

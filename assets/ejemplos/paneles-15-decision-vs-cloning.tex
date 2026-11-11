@@ -1,0 +1,84 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{19}}, line width=0.7pt,
+    seccion/.style={font=\bfseries\px{19}},
+    mini/.style={font=\px{14}, text=tinta},
+    chiquito/.style={font=\px{10}, text=tinta},
+    ]
+
+  % ===== Columna izquierda =====
+  \node[anchor=west, font=\bfseries\px{22}] at (0.2,-0.18) {Philosophical Decision (\textit{auto-positional}): Thinking-of-Real};
+  \node[seccion] at (3.1,-0.88) {Syntax};
+  \node at (3.1,-1.23) {Categories};
+  \node at (3.1,-1.58) {Concepts};
+  \node at (3.1,-1.93) {Theses};
+  \node[seccion] at (3.05,-2.5) {Structure};
+  \node at (3.05,-2.86) {\textit{Immanence} interiority.};
+  \node at (3.05,-3.2) {\textit{Transcendence}: form of exteriority.};
+  \node at (3.05,-3.57) {\textit{Synthesis}: immanent and transcendent.};
+
+  \begin{scope}[color=gris]
+    \node[font=\bfseries\px{19}, text=tinta] at (3.0,-4.22) {Philosophy};
+    \node[mini] at (3.0,-4.72) {Synthesis};
+    \node[mini] at (1.85,-5.75) {Immanence\\(Interiority)};
+    \node[mini] at (4.17,-5.75) {Transcendence\\(Exteriority)};
+    \draw[rayas, llenos, line width=0.6pt] (1.87,-5.52) -- (2.6,-4.88);
+    \draw[rayas, llenos, line width=0.6pt] (3.38,-4.88) -- (4.1,-5.52);
+    \draw[rayas, llenos, line width=0.6pt] (2.45,-5.78) -- (3.58,-5.78);
+    \node[mini, font=\itshape\px{13}] at (3.0,-5.22) {Decision};
+    \node[chiquito] at (1.42,-5.22) {Philosophy in need of itself};
+    \node[chiquito] at (4.6,-5.22) {Philosophy in excess of itself};
+  \end{scope}
+
+  \node[seccion] at (3.05,-6.86) {Transcendental Operations};
+  \node at (3.05,-7.23) {\textit{Acquisition} of Regional Knowledge.};
+  \node at (3.05,-7.61) {\textit{Universalization} and ordering of these Knowings.};
+  \node at (3.05,-7.98) {\textit{Domination} over other philosophies as meta-philosophy.};
+
+  \foreach \y/\t in {-8.85/{Like Deleuze claims, philosophy reifies common sense as auto-positional.},
+                     -9.12/{It is a \textit{forgetting of the One}, rather than Being.},
+                     -9.39/{It fails to rise to a purely transcendental thought, as it depends on the empirical.}}
+    \node[anchor=west, font=\px{20}] at (0.3,\y) {\textbullet\hspace{1.2em}\t};
+
+  % ===== Columna derecha =====
+  \node[anchor=west, font=\bfseries\px{22}] at (7.22,-0.18) {Non-Philosophical Cloning (\textit{axiomatic}): Thinking-According-to-Real};
+  \node[seccion] at (10.92,-0.91) {Syntax};
+  \node at (10.92,-1.28) {First Terms};
+  \node at (10.92,-1.67) {Axioms};
+  \node[seccion] at (10.87,-2.5) {Structure};
+  \node at (10.87,-2.86) {\textit{One}: Real immanence.};
+  \node at (10.87,-3.2) {\textit{X}: Term from transcendence that extracts a clone from the One.};
+  \node at (10.87,-3.57) {\textit{Image-of-the-One}: Clone of the One extracted by X from the One.};
+
+  \begin{scope}[color=gris]
+    \node[font=\bfseries\px{19}, text=tinta] at (11.07,-4.22) {Non-Philosophy};
+    \node[mini] at (11.03,-4.72) {One};
+    \node[mini] at (9.5,-5.73) {X\\(Transcendental Term)};
+    \node[mini] at (12.3,-5.76) {Image-of-the-One\\(Clone)};
+    \draw[puntitos, line width=0.6pt, dash pattern=on 0pt off 1.6pt, lleno] (10.68,-4.87) -- (9.55,-5.55);
+    \draw[puntitos, line width=0.6pt, dash pattern=on 0pt off 1.6pt, lleno] (10.38,-5.7) -- (11.5,-5.7);
+    \node[mini, font=\itshape\px{13}] at (9.5,-5.2) {Extraction};
+    \node[mini, font=\itshape\px{13}] at (11.03,-5.2) {Cloning};
+  \end{scope}
+
+  \node[seccion] at (10.77,-6.88) {Transcendental Functions as an \textit{Organon of Thought}};
+  \node at (10.77,-7.26) {\textit{Universalization} of All Regional and Fundamental Knowledges};
+  \node at (10.77,-7.63) {\textit{Hypothetical Postulation} as irreducible, non-verifiable/non-falsifiable (theoretical function)};
+  \node at (10.77,-8.0) {\textit{Transformation} of experience (practical function)};
+
+  \foreach \y/\t in {-8.85/{It is a \textit{pure} transcendental thought according to the condition of immanence.},
+                     -9.12/{It is a \textit{unified theory of science and philosophy}, of regional and fundamental knowings.},
+                     -9.39/{It a \textit{organon of Thought}.}}
+    \node[anchor=west, font=\px{20}] at (7.45,\y) {\textbullet\hspace{1.2em}\t};
+
+  \begin{scope}[color=gris]
+    \node[mini, font=\px{17}] at (9.82,-10.2) {Identity};
+    \node[mini, font=\px{17}] at (11.7,-10.2) {Duality};
+    \draw[puntitos, line width=0.6pt, dash pattern=on 0pt off 1.6pt, lleno] (9.82,-10.03) -- (9.82,-9.8) -- (11.7,-9.8) -- (11.7,-10.04);
+    \draw[puntitos, line width=0.6pt, dash pattern=on 0pt off 1.6pt, lleno] (11.7,-10.37) -- (11.7,-10.62) -- (9.82,-10.62) -- (9.82,-10.39);
+    \node[etq, mini, font=\itshape\px{11}, inner sep=0.5pt] at (10.77,-9.8) {Cause\\[-3pt]\px{7}(Determination-in-the-Last-Instance)};
+    \node[etq, mini, font=\itshape\px{11}, inner sep=0.5pt] at (10.77,-10.62) {Unilateral Distinction\\[-3pt]\px{7}(Duality-Without-Synthesis)};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

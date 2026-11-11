@@ -1,0 +1,46 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=tinta, every node/.append style={font=\px{31}}, line width=0.8pt,
+    every path/.append style={rounded corners=5pt}]
+  \node[titulo=48] at (9.45,-0.55) {Dimensions of Theorization};
+  \begin{scope}[every node/.append style={font=\bfseries\px{29}}]
+    \node at (1.55,-2.58) {FORMS};
+    \node at (1.55,-5.04) {METHODS};
+    \node at (1.55,-7.2) {STAGES};
+    \node at (1.55,-9.6) {CONCEPTIONS};
+  \end{scope}
+
+  % Formas
+  \node at (4.09,-2.58) {Informal};
+  \node at (8.63,-2.65) {Proto-Formal};
+  \node at (14.22,-2.65) {Formal};
+  \draw[lleno] (5.12,-2.63) -- (7.35,-2.63);
+  \draw[lleno] (9.88,-2.67) -- (13.15,-2.67);
+
+  % Métodos
+  \draw[lleno] (14.22,-3.15) -- (14.22,-3.9) -- (11.68,-3.9) -- (11.68,-4.62);
+  \draw[lleno] (14.22,-3.9) -- (18.23,-3.9) -- (18.23,-4.62);
+  \node at (11.68,-5.04) {Axiomatic};
+  \node at (18.23,-5.04) {Coherence-Network};
+
+  % Etapas
+  \draw[lleno] (11.68,-5.55) -- (11.68,-6.2) -- (4.12,-6.2) -- (4.12,-6.82);
+  \node at (4.12,-7.25) {Euclidean};
+  \node at (8.3,-7.23) {Informal\\Hilbertian};
+  \node at (12.42,-7.25) {Hilbertian};
+  \node at (16.0,-7.27) {Structuralist};
+  \draw[lleno] (5.2,-7.28) -- (7.2,-7.28);
+  \draw[lleno] (9.38,-7.28) -- (11.37,-7.28);
+  \draw[lleno] (13.47,-7.28) -- (14.95,-7.28);
+
+  % Concepciones
+  \draw[lleno] (12.42,-7.72) -- (12.42,-9.17);
+  \draw[lleno] (12.42,-8.45) -- (9.45,-8.45) -- (9.45,-9.17);
+  \draw[lleno] (16.0,-7.75) -- (16.0,-9.65) -- (13.5,-9.65);
+  \draw[lleno] (18.23,-5.55) -- (18.23,-9.17);
+  \node at (9.45,-9.6) {Logical};
+  \node at (12.42,-9.6) {Scientific};
+  \node at (18.23,-9.6) {Structural};
+\end{tikzpicture}
+\end{document}

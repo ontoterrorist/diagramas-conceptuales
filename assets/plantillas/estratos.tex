@@ -1,0 +1,17 @@
+% Estratos: niveles de un mismo proceso o escala, con rótulos al margen en versalitas
+% y una llave que agrupa los que el texto agrupa bajo un nombre.
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage{diagrama}
+\begin{document}
+\begin{tikzpicture}[every node/.append style={font=\px{28}}]
+  \node[titulo=44] at (4,5.6) {Título de los estratos};
+  \foreach \i/\y/\t in {1/4.4/Nivel superior, 2/3.0/Nivel medio, 3/1.6/Nivel inferior} {
+    \node (n\i) at (4,\y) {\t};
+    \node[nivel=20] at (0,\y) {ESTRATO \i};
+  }
+  \draw[derivacion] (n3) -- (n2);   % e1
+  \draw[derivacion] (n2) -- (n1);   % e2
+  \draw[totalidad virtual] (6.6,1.2) -- (6.6,4.8);                               % g1
+  \node[font=\itshape\px{30}, anchor=west] at (7.4,3.0) {Nombre de la totalidad};
+\end{tikzpicture}
+\end{document}

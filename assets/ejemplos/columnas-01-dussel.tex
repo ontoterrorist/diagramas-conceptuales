@@ -1,0 +1,64 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+% Una caja de principio: x izq., y sup., y inf., número, título, regla (x1,x2,y), cuerpo
+\newcommand\principio[9]{%
+  \draw[rounded corners=7pt, line width=1pt] (#1,#2) rectangle ($(#1,#3)+(5.0,0)$);
+  \node[font=\bfseries\px{36}, anchor=north west] at ($(#1,#2)+(0.18,-0.13)$) {#4};
+  \node[font=\bfseries\px{26}, anchor=north west, align=left] at ($(#1,#2)+(0.82,-0.13)$) {#5};
+  \draw[line width=0.8pt] (#6,#8) -- (#7,#8);
+  \node[font=\px{21}, anchor=north west, align=left] at ($(#1,#8)+(0.38,-0.1)$) {#9};
+}
+\begin{document}
+\begin{tikzpicture}
+  \node[titulo=46] at (7.92,-0.36) {From Ethical Principles to Political Principles};
+  \node[font=\itshape\px{32}] at (7.82,-0.8) {The Subsumption of Ethics in Politics in Dussel's Politics of Liberation};
+
+  \node[font=\px{30}] at (3.12,-1.37) {\textsc{The Ethics of Liberation}};
+  \node[font=\px{24}] at (3.12,-1.69) {(Foundational Ethical Principles)};
+  \node[font=\px{23}] at (7.77,-1.7) {\textsc{Subsumption / Correspondence}};
+  \node[font=\px{30}] at (12.0,-1.37) {\textsc{The Politics of Liberation}};
+  \node[font=\px{24}] at (12.0,-1.69) {(Concrete Political Principles)};
+
+  % Ética
+  \principio{0.66}{-1.95}{-4.35}{1.}{The formal ethical principle\\(of validity)}{2.47}{3.67}{-3.0}
+    {Norms are valid only if they could receive the\\free and symmetrical agreement of all\\affected participants in practical discourse.}
+  \principio{0.66}{-4.52}{-6.77}{2.}{Material ethical principle\\(of truth)}{2.47}{3.63}{-5.4}
+    {One ought to produce, reproduce, and develop\\the concrete human life of every ethical\\subject in community.}
+  \principio{0.66}{-6.92}{-8.53}{3.}{The feasibility principle}{2.47}{3.25}{-7.5}
+    {One ought to realize only those ethical\\projects that are actually possible under\\concrete historical conditions.}
+
+  % Política
+  \principio{9.6}{-1.95}{-4.37}{1’.}{The principle of political legitimacy\\(democratic principle,\\originary principle of consensuality)}{11.52}{12.5}{-3.07}
+    {The abstract ethical act is realized in legal institutions\\forged by the consensual power of a political community\\that aims toward justice.}
+  \principio{9.6}{-4.52}{-6.79}{2’.}{The universal material\\political principle}{11.52}{12.47}{-5.41}
+    {The productive-reproductive and developmental\\functions of life become subsumed in ecological,\\economic, and cultural determinations, comprising\\the ``material dimension'' (\textit{ámbito material}) of politics.}
+  \principio{9.6}{-6.93}{-8.56}{3’.}{The principle of strategic-\\political feasibility}{11.52}{12.47}{-7.8}
+    {Political and institutionalized action is pragmatically\\delimited by a variety of external factors.}
+
+  % Subsunción
+  \foreach \ya/\yb/\yc/\txt in {
+      -2.9/-3.18/-3.58/{realization in institutional\\and political terms},
+      -5.27/-5.56/-5.94/{subsumption in the\\material dimension of politics},
+      -7.44/-7.72/-8.1/{pragmatic delimitation\\of political action}} {
+    \node[font=\px{23}] at (7.55,\ya+0.28) {is subsumed by};
+    \draw[line width=1.5pt, -{Latex[length=4mm,width=3mm]}] (5.75,\ya) -- (9.38,\ya);
+    \draw[rayas, line width=0.7pt] (5.95,\yb) -- (9.1,\yb);
+    \node[font=\itshape\px{21}] at (7.55,\yc) {\txt};
+  }
+
+  % Recuadro de correspondencias
+  \draw[dash pattern=on 3pt off 2pt, line width=0.6pt, rounded corners=9pt] (0.66,-8.8) rectangle (14.65,-10.02);
+  \foreach \y/\n/\txt in {
+      -9.08/1/{Validity $\rightarrow$ Legitimate institutions through consensual power},
+      -9.39/2/{Truth $\rightarrow$ Material dimension of politics (ecological, economic, cultural)},
+      -9.7/3/{Feasibility $\rightarrow$ Strategic and political feasibility in context}} {
+    \node[font=\px{22}] at (1.12,\y) {\n};
+    \node[font=\px{22}] at (1.46,\y) {$\leftrightarrow$};
+    \node[font=\px{22}] at (1.8,\y) {\n’};
+    \node[font=\px{22}, anchor=west] at (2.25,\y) {\txt};
+  }
+  \draw[line width=0.6pt] (8.88,-8.98) -- (8.88,-9.83);
+  \node[font=\px{22}, anchor=west, align=left] at (9.32,-9.39)
+    {The ethical principles provide the normative foundation;\\the political principles are their concrete, historical,\\and institutional realizations.};
+\end{tikzpicture}
+\end{document}

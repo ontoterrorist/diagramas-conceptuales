@@ -1,0 +1,44 @@
+% Kant: from the thing-in-itself to empirical judgment
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[robusto]{diagrama}
+\begin{document}
+\begin{tikzpicture}[img]
+\tikzset{
+  caja/.style={draw, line width=1.6pt, font=\px{28}, minimum width=7.08*1.6cm,
+    minimum height=0.97*1.6cm, inner sep=0pt},
+  emb/.style={puntos, hueco},
+  rot/.style={etq, font=\itshape\px{28}},
+  nivel/.style={font=\bfseries\px{38}, anchor=west},
+}
+\node[font=\bfseries\px{28}] at (8.83,0.70) {MIND INDEPENDENT (NOUMENA)};
+\node[caja] at (8.75,1.53) {\textbf{Thing-in-itself (World)}\\("?")};
+\draw[emb] (8.76,2.05) -- (8.76,3.50);
+\node[rot] at (8.76,2.80) {Causation};
+
+\node[font=\bfseries\px{28}] at (8.90,4.00) {MIND DEPENDENT (REPRESENTINGS)};
+\node[caja] at (8.75,4.75) {\textbf{Sensory Manifold (Sensation)}\\("a-red-rounded-impression")};
+\node[caja] at (8.75,7.32) {\textbf{Image-Models-of-External Objects (Imagination)}\\("perceiver-confronting-a-red-juicy-apple")};
+\node[caja] at (8.75,9.89) {\textbf{Individuals / Grammatical Predicate (Intuition)}\\("this red juicy apple")};
+\node[caja] at (8.75,12.46) {\textbf{Belief / Empirical Judgment (Understanding)}\\("this red juicy apple is edible")};
+\foreach \a/\b/\m in {5.25/6.82/6.05, 7.82/9.39/8.62, 10.39/11.96/11.20} {
+  \draw[emb] (8.76,\a) -- (8.76,\b);
+  \node[rot] at (8.76,\m) {Embedding};
+}
+
+% niveles
+\draw[line width=1.6pt, llave=0.32cm] (12.62,4.27) -- (12.62,5.23);
+\node[nivel] at (13.15,4.70) {Non-Conceptual};
+\draw[line width=1.6pt, llave=0.32cm] (12.62,6.84) -- (12.62,7.80);
+\node[nivel] at (13.15,7.30) {Proto-Conceptual (Algorithmic Form)};
+\draw[line width=1.6pt, llave=0.45cm] (12.62,9.41) -- (12.62,12.94);
+\node[nivel] at (13.28,11.13) {Conceptual (Categorial Form)};
+
+\draw[line width=1.8pt, llave=1.7cm] (4.90,12.94) -- (4.90,4.27);
+\node[font=\px{72}] at (1.85,8.55) {"I think" +};
+
+% unidad trascendental de la apercepción
+\draw[rayas, line width=1.4pt] (1.92,13.90) -- (2.57,13.25) -- (2.57,13.58) -- (14.95,13.58) -- (14.95,13.25)
+  -- (15.60,13.90) -- (14.95,14.55) -- (14.95,14.23) -- (2.57,14.23) -- (2.57,14.55) -- cycle;
+\node[font=\bfseries\itshape\px{42}] at (8.76,13.88) {Transcendental Unity of Apperception};
+\end{tikzpicture}
+\end{document}

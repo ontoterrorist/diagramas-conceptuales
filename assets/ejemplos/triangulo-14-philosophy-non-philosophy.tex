@@ -1,0 +1,73 @@
+\documentclass[tikz,border=12pt]{standalone}
+\usepackage[fino]{diagrama}
+\begin{document}
+\begin{tikzpicture}[color=gris, every node/.append style={font=\px{26}, text=tinta}, line width=0.9pt,
+    tit/.style={font=\bfseries\px{33}},
+    negrita/.style={font=\bfseries\px{17}},
+    chico/.style={font=\px{17}},
+    rotulo/.style={etq, font=\itshape\px{14}},
+    doble/.style={rayas, llenos},
+    pt/.style={puntitos, line width=1pt}]
+
+  % --- Philosophy ---
+  \node[tit] at (3.78,-0.3) {Philosophy};
+  \node at (3.78,-1.37) {Synthesis};
+  \node at (1.9,-3.16) {Immanence\\\px{20}(Interiority)};
+  \node at (5.67,-3.16) {Transcendence\\\px{20}(Exteriority)};
+  \draw[doble] (1.92,-2.77) -- (3.15,-1.63);
+  \draw[doble] (4.35,-1.63) -- (5.65,-2.77);
+  \draw[doble] (2.85,-3.15) -- (4.72,-3.15);
+  \node[font=\itshape\px{22}] at (3.78,-2.2) {Decision};
+  \node[chico] at (1.22,-2.22) {Philosophy in need of itself};
+  \node[chico] at (6.37,-2.22) {Philosophy in excess of itself};
+
+  % --- Non-Philosophy ---
+  \node[tit] at (13.87,-0.3) {Non-Philosophy};
+  \node at (10.85,-1.38) {One};
+  \node[negrita] at (10.85,-1.61) {Real};
+  \node at (16.07,-1.38) {Clone};
+  \node[negrita] at (16.07,-1.61) {Transcendental Identity};
+  \draw[pt, lleno] (11.25,-1.48) -- (14.42,-1.48);
+  \node[rotulo] at (12.97,-1.47) {Extraction};
+  \draw[pt] (10.85,-1.93) -- (10.85,-2.95);
+  \node[font=\itshape\px{22}] at (12.95,-2.32) {Cloning};
+  \node[font=\itshape\px{22}] at (16.22,-2.32) {Unilateralization};
+  \node at (10.85,-3.18) {X};
+  \node[negrita] at (10.85,-3.42) {Occassional Cause};
+  \node[chico] at (10.85,-3.7) {Transcendental/Empirical term\\from Philosophy/Science)};
+  \draw[pt, hueco] (11.5,-3.2) -- (14.4,-3.2);
+  \node[rotulo] at (12.97,-3.2) {Reduction};
+  \node at (14.67,-3.18) {E\raisebox{-0.3ex}{\px{17}x}};
+  \node[negrita] at (14.67,-3.43) {Empirical Support};
+  \node[chico] at (14.67,-3.67) {(Demotion of X )};
+  \draw[pt, hueco] (17.05,-3.2) -- (14.92,-3.2);
+  \node[font=\itshape\px{26}] at (17.77,-3.2) {A Priori};
+  \node[negrita] at (17.77,-3.46) {Pure Principle};
+  \node[chico] at (17.77,-3.7) {(Extracted by Clone from E\raisebox{-0.3ex}{\px{12}x})};
+  \draw[pt] (15.65,-1.82) -- (14.82,-2.95);
+  \draw[pt, hueco] (16.6,-1.82) -- (17.6,-2.98);
+
+  % --- The Transcendent-Transcendental Correlation ---
+  \node[tit] at (3.78,-5.07) {The Transcendent-Transcendental Correlation};
+  \node at (4.02,-5.83) {Transcendental\\\px{20}(Cause-Unity)};
+  \node at (2.15,-7.57) {Transcendent\\\px{20}(empirical \textit{datum})};
+  \node at (5.9,-7.57) {Transcendence\\\px{20}(A \textit{priori factum})};
+  \draw[doble] (2.15,-7.12) -- (3.38,-5.95);
+  \draw[doble] (4.6,-5.95) -- (5.88,-7.12);
+  \draw[doble] (3.12,-7.6) -- (4.93,-7.6);
+  \node[font=\itshape\px{22}] at (4.05,-6.77) {Decision};
+  \draw[pt, decorate, decoration={brace, mirror, amplitude=7pt}] (1.2,-7.95) -- (6.97,-7.95);
+  \node[font=\itshape\px{26}] at (4.1,-8.5) {Correlation};
+
+  % --- Unilateral Distinction ---
+  \node[tit] at (13.85,-5.1) {Unilateral Distinction};
+  \node[font=\px{34}] at (12.23,-6.93) {Identity};
+  \node[font=\itshape\px{18}] at (12.23,-7.22) {(One)};
+  \node[font=\px{34}] at (15.37,-6.93) {Duality};
+  \node[font=\itshape\px{18}] at (15.37,-7.22) {(Force-of-Thought)};
+  \draw[pt, lleno] (12.23,-6.62) -- (12.23,-6.17) -- (15.37,-6.17) -- (15.37,-6.64);
+  \draw[pt, lleno] (15.37,-7.42) -- (15.37,-7.92) -- (12.23,-7.92) -- (12.23,-7.47);
+  \node[etq, font=\itshape\px{22}, inner sep=1pt] at (13.8,-6.13) {Unilateral Cause\\[-3pt]\px{15}(Determination-in-the-Last-Instance)};
+  \node[etq, font=\itshape\px{22}, inner sep=1pt] at (13.8,-7.86) {Unilateral Distinction\\[-3pt]\px{15}(Duality-Without-Synthesis)};
+\end{tikzpicture}
+\end{document}

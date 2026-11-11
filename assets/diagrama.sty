@@ -1,0 +1,171 @@
+% diagrama.sty — estilo unificado para diagramas conceptuales (skill diagramas-conceptuales).
+%
+% Reúne estilo.sty (opción `fino`, diagramas 01–19) y estilo-sintesis.sty (opción
+% `robusto`, 20–37). Por omisión `robusto`, que es el trazo más legible al reducir.
+%
+% Escala: 1 unidad = 100 px del original = 1,6 cm. Con [img] las coordenadas se leen
+% directamente de una imagen: (x/100, y/100) con y hacia abajo. Sin [img], y va hacia arriba.
+% \px{n} da el tamaño de letra que corresponde a n píxeles del original, para que el
+% diagrama escale sin desarmarse.
+%
+% La forma del trazo lleva el significado. Los estilos con nombre semántico (sección
+% «relaciones» abajo) nombran la RELACIÓN, no el aspecto: `derivacion`, `sucesion`,
+% `genesis`, `virtual`, `operacion`, `reciproca`, `unilateral`, `paradoja`, `totalidad`,
+% `eje`... El léxico completo está en references/lexico.md.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{diagrama}[2026/11/05 Diagramas conceptuales en TikZ]
+
+\newif\ifdiagrama@fino
+\DeclareOption{fino}{\diagrama@finotrue}
+\DeclareOption{robusto}{\diagrama@finofalse}
+\newif\ifdiagrama@negro
+\DeclareOption{negro}{\diagrama@negrotrue}  % texto y trazos en negro puro (para «blanco y negro» estricto)
+\ExecuteOptions{robusto}
+\ProcessOptions\relax
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[lining]{ebgaramond}
+\RequirePackage{amsmath}
+\RequirePackage[scale=.9]{tgheros}   % solo se usa con \sffamily (diagramas analíticos)
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,calc,decorations.pathreplacing,positioning,fit,backgrounds,shapes.misc}
+
+\newcommand\px[1]{\fontsize{\fpeval{#1*0.455}}{\fpeval{#1*0.455*1.18}}\selectfont}
+
+% ---------------------------------------------------------------- colores
+% Solo escala de grises: la información está en la forma, no en el color.
+\definecolor{tinta}{RGB}{58,61,68}        % texto y contorno de lo actual
+\definecolor{gris}{RGB}{85,85,85}         % contorno de lo virtual / trazo secundario
+\definecolor{grisclaro}{RGB}{185,185,185} % trazo de lo interpretativo
+\definecolor{grisinterp}{RGB}{135,135,135}% texto de lo interpretativo (legible)
+\ifdiagrama@negro\definecolor{tinta}{gray}{0}\definecolor{gris}{gray}{0.25}\fi
+
+% ---------------------------------------------------------------- parámetros por variante
+\ifdiagrama@fino
+  \def\dg@lw{0.9pt}
+  \def\dg@L{3.2mm}\def\dg@W{2.4mm}        % punta llena
+  \def\dg@Lh{3.2mm}\def\dg@Wh{2.6mm}      % punta hueca
+  \def\dg@hlw{}                           % grosor del contorno de la punta hueca
+  \def\dg@ron{4.5pt}\def\dg@roff{3pt}     % rayas
+  \def\dg@pw{1.2pt}\def\dg@poff{3.4pt}    % puntos
+  \def\dg@tw{0.8pt}\def\dg@toff{2.4pt}    % puntitos
+\else
+  \def\dg@lw{1.1pt}
+  \def\dg@L{4.2mm}\def\dg@W{3.2mm}
+  \def\dg@Lh{4.4mm}\def\dg@Wh{3.4mm}
+  \def\dg@hlw{,line width=1.1pt}
+  \def\dg@ron{5pt}\def\dg@roff{3.5pt}
+  \def\dg@pw{2pt}\def\dg@poff{4.6pt}
+  \def\dg@tw{1.4pt}\def\dg@toff{3.4pt}
+\fi
+
+% ---------------------------------------------------------------- estilos primitivos
+\tikzset{
+  every picture/.style={x=1.6cm, y=1.6cm, line width=\dg@lw, line join=round},
+  every node/.style={align=center, inner sep=2pt},
+  % puntas
+  lleno/.style ={-{Latex[length=\dg@L,width=\dg@W]}},
+  llenos/.style={{Latex[length=\dg@L,width=\dg@W]}-{Latex[length=\dg@L,width=\dg@W]}},
+  hueco/.style ={-{Triangle[open,length=\dg@Lh,width=\dg@Wh\dg@hlw]}},
+  huecos/.style={{Triangle[open,length=\dg@Lh,width=\dg@Wh\dg@hlw]}-{Triangle[open,length=\dg@Lh,width=\dg@Wh\dg@hlw]}},
+  barba/.style ={-{Straight Barb[length=2.6mm,width=3mm]}},
+  barbas/.style={{Straight Barb[length=2.6mm,width=3mm]}-{Straight Barb[length=2.6mm,width=3mm]}},
+  % trazos
+  rayas/.style={dash pattern=on \dg@ron off \dg@roff},
+  rayaslargas/.style={dash pattern=on 9pt off 5pt},
+  puntos/.style={line cap=round, dash pattern=on 0pt off \dg@poff, line width=\dg@pw},
+  puntitos/.style={line cap=round, dash pattern=on 0pt off \dg@toff, line width=\dg@tw},
+  puntazos/.style={line cap=round, dash pattern=on 0pt off 7pt, line width=2.6pt},
+  rayapunto/.style={dash pattern=on 9pt off 3.5pt on 1pt off 3.5pt},
+  rayapuntopunto/.style={dash pattern=on 9pt off 3pt on 1pt off 3pt on 1pt off 3pt},
+  % llaves (la punta queda a la izquierda del sentido del trazo)
+  llave/.style={decorate, decoration={brace, amplitude=#1}},
+  llave/.default=8pt,
+  % textos
+  etq/.style={fill=white, inner sep=2.5pt},
+  titulo/.style={font=\bfseries\px{#1}},
+  titulo/.default=60,
+  subtitulo/.style={font=\itshape\px{#1}},
+  subtitulo/.default=32,
+  termino/.style={font=\itshape},                    % término técnico del autor
+  rotulo/.style={etq, font=\itshape\px{#1}},         % nombre de una relación sobre su arista
+  rotulo/.default=22,
+  nivel/.style={font=\bfseries\px{#1}, anchor=west, align=left},  % nivel al margen
+  nivel/.default=26,
+  % coordenadas de imagen: (x/100, y/100) con y hacia abajo
+  img/.style={y=-1.6cm},
+}
+
+% ---------------------------------------------------------------- relaciones (léxico)
+% Cada estilo nombra QUÉ relación une los dos nodos. Se componen con grosor/curvas a gusto:
+%   \draw[genesis, line width=1.6pt] (a) to[bend left] (b);
+\tikzset{
+  % derivación, determinación fuerte, división género→especie
+  derivacion/.style={lleno},
+  % inclusión / subsunción: igual que la derivación; el verbo («is subsumed by») va en la etiqueta
+  subsuncion/.style={lleno, line width=1.5pt},
+  % sucesión dentro de una serie, transición
+  sucesion/.style={hueco},
+  sucesion rayada/.style={rayas, hueco},
+  sucesion larga/.style={rayaslargas, hueco},
+  % génesis, actualización, fuerza que empuja
+  genesis/.style={rayas, lleno},
+  genesis hueca/.style={rayas, hueco},
+  % relación virtual, débil o de correspondencia (repetición, encarnación, disfraz, desplazamiento)
+  virtual/.style={puntitos, hueco},
+  virtual fuerte/.style={puntos, hueco},
+  % operación singular del autor (clonación, extracción, contracción, expectativa, traslación)
+  operacion/.style={rayapunto, lleno},
+  operacion hueca/.style={rayapunto, hueco},
+  operacion doble/.style={rayapuntopunto, hueco},
+  % reciprocidad, correlación, interdependencia, paralelismo — doble punta; la fuerza baja con el trazo
+  reciproca/.style={llenos},
+  reciproca rayada/.style={rayas, llenos},
+  reciproca debil/.style={puntitos, llenos},
+  reciproca hueca/.style={huecos},
+  % unilateralidad: UNA sola punta. Nunca doble. Determina sin ser determinado.
+  unilateral/.style={puntitos, lleno},
+  unilateral fuerte/.style={lleno},
+  % autorreferencia, paradoja, violación de nivel: arco que salta de nivel y vuelve
+  paradoja/.style={puntitos, hueco},
+  % retroalimentación: un nivel superior reelabora los inferiores (haz de arcos)
+  retroalim/.style={puntitos, lleno},
+  % retorno, rechazo, metamorfosis entre series: doble punta punteada entre regiones lejanas
+  retorno/.style={puntos, huecos},
+  % anulación o exclusión (rotular «Cancelled» o usar \tachar)
+  anulacion/.style={puntos},
+  % orientación, eje o gradiente global (flecha larga al margen, rotulada)
+  eje/.style={rayapunto, lleno},
+  eje virtual/.style={puntitos, lleno},
+  % totalidad: llave. Sólida = definicional; rayada = virtual; punteada = abierta
+  totalidad/.style={llave},
+  totalidad virtual/.style={rayas, llave},
+  totalidad abierta/.style={puntos, llave},
+  % lo interpretativo (decisión del diagramador, no del texto): gris claro + marca †
+  interp/.style={color=grisclaro, text=grisinterp},
+  % contorno de un nodo = estatus ontológico
+  caja/.style={draw, rounded corners=5pt},                  % actual, determinado
+  caja virtual/.style={draw, rounded corners=5pt, rayas},    % virtual, indeterminado
+  caja abierta/.style={draw, rounded corners=5pt, puntitos}, % incognoscible, contraparte
+  caja futura/.style={draw, rounded corners=5pt, rayapunto}, % lo que aún no es
+}
+
+% ---------------------------------------------------------------- ayudas
+% Marcas de fidelidad: † = interpretativo (decisión del diagramador); * = inferido, discutible.
+\newcommand\interpretativo{\textsuperscript{\textdagger}}
+\newcommand\discutible{\textsuperscript{*}}
+% Nota al pie del diagrama:  \nota{x,y}{† Lectura del diagramador: ...}
+% Ancho por omisión 14 cm para que una nota larga no ensanche la figura; se cambia con el
+% argumento opcional:  \nota[text width=20cm, font=\itshape\px{20}]{x,y}{...}
+\newcommand\nota[3][]{\node[anchor=north west, align=left, font=\itshape\px{18}, text=gris, text width=14cm, #1] at (#2) {#3};}
+% Tachado de un nodo o de una arista (anulación):  \tachar{(a)}
+\newcommand\tachar[1]{\node[cross out, draw, minimum size=3.2mm, inner sep=0pt] at #1 {};}
+% Paralelogramo (plano, formas «inclinadas»):  \paralelogramo[opciones]{cx}{cy}{ancho}{alto}{inclinación}
+\newcommand\paralelogramo[6][]{%
+  \draw[line width=1.6pt, #1] ({#2-#4/2-#6/2},{#3+#5/2}) -- ({#2-#4/2+#6/2},{#3-#5/2})
+    -- ({#2+#4/2+#6/2},{#3-#5/2}) -- ({#2+#4/2-#6/2},{#3+#5/2}) -- cycle;}
+% Muestra de leyenda:  \muestra{estilo}{x}{y}{texto}  (trazo de 1.4 unidades + rótulo)
+\newcommand\muestra[4]{%
+  \draw[#1] (#2,#3) -- ++(1.4,0);
+  \node[anchor=west, font=\itshape\px{18}] at ({#2+1.55},{#3}) {#4};}
+\endinput

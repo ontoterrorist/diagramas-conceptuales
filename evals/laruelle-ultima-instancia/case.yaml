@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: laruelle-ultima-instancia
+expected_outcome: |
+  A TikZ diagram, compiled to PDF and PNG, where every relation between the One (Real) and what it determines (clone, occasional cause, empirical support) is unilateral: a single arrowhead, never a double-headed arrow. The author's operations (Cloning, Extraction, Reduction) are named on the edges. Fidelity book present, with 'unilateral' as the relation type of those rows. Compare with corpus diagrams 02 and 13-15.
