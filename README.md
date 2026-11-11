@@ -2,6 +2,10 @@
 
 Skill de Claude Code que lee un texto filosófico o teórico, reconstruye su estructura conceptual y la dibuja como diagrama TikZ en blanco y negro, fiel al texto. La forma del trazo lleva el significado: una relación unilateral no se dibuja como una recíproca.
 
+## Origen
+
+La skill se creó a partir de diagramas hechos por Daniel Sacilotto: los 37 ejemplos de `assets/ejemplos/` y el léxico de trazos salen de ese corpus.
+
 ## Contenido
 
 - `SKILL.md`: flujo de trabajo (A–E).
